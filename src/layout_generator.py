@@ -114,6 +114,9 @@ class LayoutGenerator:
         self.mlp = self._init_mlp(model_path)
         # 4维β到16维p的广播映射
         self._beta_to_dim_map = self._build_beta_expand_map()
+        # 渲染器
+        from .renderer import Renderer
+        self.renderer = Renderer()
 
     def _init_encoder(self) -> DualEncoder:
         return DualEncoder()
@@ -199,6 +202,15 @@ class LayoutGenerator:
             "question": question,
         }
         return params
+
+    def generate_visualization(self, sql: str, question: str) -> str:
+        """
+        完整管线：SQL + NL → SVG字符串 (真实端到端)
+        步骤：generate_layout → renderer.render
+        """
+        params = self.generate_layout(sql, question)
+        svg_str = self.renderer.render(params, sql=sql, question=question)
+        return svg_str
 
     def _extract_attn_words(self, A: torch.Tensor, tokens_s: List[str],
                              tokens_q: List[str], top_k: int = 3) -> Dict[str, list]:

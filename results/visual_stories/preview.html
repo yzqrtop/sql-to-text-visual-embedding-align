@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>MetaphorSearch 实验结果可视化预览</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            background: #f0f2f5;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #1a1a2e;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+        .svg-card {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+        .svg-card-header {
+            padding: 15px 25px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .svg-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #3498DB;
+            color: #fff;
+            font-weight: bold;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+        .svg-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+        }
+        .svg-desc {
+            font-size: 12px;
+            color: #999;
+            margin-left: auto;
+        }
+        .svg-container {
+            padding: 20px;
+            text-align: center;
+            background: #fafbfc;
+        }
+        .svg-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .svg-container object {
+            max-width: 100%;
+            height: auto;
+        }
+        .nav {
+            position: sticky;
+            top: 0;
+            background: #fff;
+            padding: 12px 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            margin-bottom: 20px;
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            z-index: 100;
+        }
+        .nav a {
+            text-decoration: none;
+            color: #3498DB;
+            font-size: 13px;
+            padding: 6px 14px;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+        .nav a:hover {
+            background: #EBF5FB;
+            color: #2980B9;
+        }
+    </style>
+</head>
+<body>
+    <h1>MetaphorSearch 实验结果可视化预览</h1>
+    <p class="subtitle">Dual-Encoder Architecture | 16-Dim Semantic Fingerprint | Cross-Attention Entropy Modulation</p>
+
+    <div class="nav">
+        <a href="#svg1">1. 训练旅程</a>
+        <a href="#svg2">2. 管线流转</a>
+        <a href="#svg3">3. 指纹动物园</a>
+        <a href="#svg4">4. 注意力故事</a>
+        <a href="#svg5">5. 消融影响</a>
+    </div>
+
+    <div class="svg-card" id="svg1">
+        <div class="svg-card-header">
+            <span class="svg-number">1</span>
+            <span class="svg-title">Training Journey: 从随机初始化到语义指纹</span>
+            <span class="svg-desc">MLP损失曲线 + 16维雷达图 + Encoder B微调</span>
+        </div>
+        <div class="svg-container">
+            <object data="01_training_journey.svg" type="image/svg+xml" style="width:100%; max-width:1000px;"></object>
+        </div>
+    </div>
+
+    <div class="svg-card" id="svg2">
+        <div class="svg-card-header">
+            <span class="svg-number" style="background:#E67E22;">2</span>
+            <span class="svg-title">Pipeline Flow: SQL到SVG的完整旅程</span>
+            <span class="svg-desc">双编码器 → 指纹合成 → 符号渲染</span>
+        </div>
+        <div class="svg-container">
+            <object data="02_pipeline_flow.svg" type="image/svg+xml" style="width:100%; max-width:1200px;"></object>
+        </div>
+    </div>
+
+    <div class="svg-card" id="svg3">
+        <div class="svg-card-header">
+            <span class="svg-number" style="background:#27AE60;">3</span>
+            <span class="svg-title">Fingerprint Zoo: 不同SQL类型的视觉签名</span>
+            <span class="svg-desc">5种SQL类型 × 16维指纹雷达图对比</span>
+        </div>
+        <div class="svg-container">
+            <object data="03_fingerprint_zoo.svg" type="image/svg+xml" style="width:100%; max-width:1200px;"></object>
+        </div>
+    </div>
+
+    <div class="svg-card" id="svg4">
+        <div class="svg-card-header">
+            <span class="svg-number" style="background:#E74C3C;">4</span>
+            <span class="svg-title">Attention Stories: SQL如何倾听自然语言</span>
+            <span class="svg-desc">交叉注意力热力图：对齐 vs 错位</span>
+        </div>
+        <div class="svg-container">
+            <object data="04_attention_story.svg" type="image/svg+xml" style="width:100%; max-width:1200px;"></object>
+        </div>
+    </div>
+
+    <div class="svg-card" id="svg5">
+        <div class="svg-card-header">
+            <span class="svg-number" style="background:#8E44AD;">5</span>
+            <span class="svg-title">Ablation Impact: 移除每个组件会怎样？</span>
+            <span class="svg-desc">瀑布图 + 视觉影响解读</span>
+        </div>
+        <div class="svg-container">
+            <object data="05_ablation_impact.svg" type="image/svg+xml" style="width:100%; max-width:1000px;"></object>
+        </div>
+    </div>
+</body>
+</html>
