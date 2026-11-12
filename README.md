@@ -13,43 +13,6 @@ deviate from the user's natural-language intent.
 
 ---
 
-## 📁 Project Layout
-
-```
-.
-├── tool/
-│   ├── sql_to_ast_config.py         # Module 1: SQL -> AST -> JSON graph (sqlglot + ConfigBuilder)
-│   ├── sql_metaphor_diagram.py      # Module 3: deterministic SVG renderer
-│   ├── paper_figures.py             # one-shot generator for all paper figures
-│   ├── sql_ast_json_rules.md        # rule catalogue for the JSON graph (R0 - R26)
-│   ├── examples/                    # six sample SQL queries
-│   └── output/                      # generated SVG diagrams and paper figures
-├── src/                             # Module 2: semantic-gap modeling
-│   ├── config.py                    # hyper-parameters (alpha, tau, model names, ...)
-│   ├── models/                      # dual-model encoding + cross-modal attention
-│   │   ├── aligner.py               # cross-modal attention + MLP scoring head -> P_align
-│   │   └── encoders/
-│   │       ├── text_encoder.py      # Qwen2.5-Coder-7B text encoder -> H_q
-│   │       └── graph_encoder.py     # Relational GAT over the JSON graph -> H_u
-│   ├── data/                        # triplet construction + graph tensorization
-│   │   ├── graph_features.py        # JSON graph -> tensor features + score mapping
-│   │   └── graph_alignment.py       # GED-based alignment for (q, s_gt, s_bug)
-│   └── training/
-│       └── trainer.py               # BCE + triplet contrastive training loop
-├── scripts/                         # runnable entry points
-│   ├── train_aligner.py             # triples -> dense labels -> joint optimization
-│   └── score_sql.py                 # inference: element scoring -> scored JSON graph
-├── data/
-│   ├── spider/                      # Spider dataset (supervision source)
-│   └── triples/                     # (q, s_gt, s_bug) triple JSON files
-├── checkpoints/                     # trained Module 2 weights (created on demand)
-├── results/                         # scored JSON graphs and evaluation outputs
-├── requirements.txt
-└── README.md
-```
-
----
-
 ## 🚀 Quickstart
 
 ### 1️⃣ Installation
