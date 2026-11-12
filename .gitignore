@@ -22,7 +22,7 @@ wheels/
 .installed.cfg
 *.egg
 
-# 虚拟环境
+# Virtual environments
 venv/
 ENV/
 env/
@@ -34,17 +34,17 @@ env/
 *.swo
 *~
 
-# 日志文件
+# Log files
 *.log
 output.txt
 experiment_output.log
 
-# 临时文件
+# Temporary files
 *.tmp
 .DS_Store
 Thumbs.db
 
-# 模型检查点
+# Model checkpoints
 checkpoints/
 *.pth
 *.pt
@@ -52,17 +52,18 @@ checkpoints/
 *.pickle
 *.lnk
 
-# 预训练模型文件（体积大，不上传）
+# Pretrained model files (large, do not upload)
 models/
 
-# 撰写素材（本地资源，不上传）
-撰写素材/
+# Writing materials (local resources, do not upload)
+writing_materials/
 
-# 数据文件（体积大，不上传）
+# Data files (large, do not upload)
 data/spider/
 data/processed/
 data/raw/
 data/external/
+data/feedback/
 *.csv
 *.json
 
@@ -70,7 +71,7 @@ data/external/
 .ipynb_checkpoints/
 *.ipynb
 
-# 测试覆盖率
+# Test coverage
 htmlcov/
 .tox/
 .coverage

@@ -1,0 +1,184 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2553" height="1002" viewBox="0 0 2553 1002">
+<rect x="0" y="0" width="2553" height="1002" fill="#ffffff"/>
+<text x="1061.9" y="40.0" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="15" fill="#111111" font-weight="bold">SQL</text>
+<rect x="1061.9" y="48.0" width="429.3" height="292.0" rx="4" fill="#f7f7f7" stroke="#999999" stroke-width="1.2"/>
+<text x="1076.9" y="74.4" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="13.5" fill="#111111">WITH TopSales AS (</text>
+<text x="1076.9" y="96.4" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="13.5" fill="#111111">  OUTPUT ar.Name, i.ArtistId, SUM(i.Total) AS Total</text>
+<text x="1076.9" y="118.4" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="13.5" fill="#111111">  FROM invoice_items ii</text>
+<text x="1076.9" y="140.4" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="13.5" fill="#111111">  JOIN invoices i ON ii.InvoiceId = i.InvoiceId</text>
+<text x="1076.9" y="162.4" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="13.5" fill="#111111">  JOIN artists ar ON i.ArtistId = ar.ArtistId</text>
+<text x="1076.9" y="184.4" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="13.5" fill="#111111">  WHERE ii.TrackId = 1</text>
+<text x="1076.9" y="206.4" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="13.5" fill="#111111">  GROUP BY i.ArtistId, ar.Name</text>
+<text x="1076.9" y="228.4" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="13.5" fill="#111111">)</text>
+<text x="1076.9" y="250.4" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="13.5" fill="#111111">OUTPUT Name, Total</text>
+<text x="1076.9" y="272.4" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="13.5" fill="#111111">FROM TopSales</text>
+<text x="1076.9" y="294.4" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="13.5" fill="#111111">ORDER BY Total DESC</text>
+<text x="1076.9" y="316.4" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="13.5" fill="#111111">LIMIT 1;</text>
+<text x="455.3" y="388.0" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="14.5" fill="#111111" font-weight="bold">(a) horizontal layering direction = lr</text>
+<svg x="28.0" y="398.0" width="855" height="452" viewBox="0 0 855 452">
+<rect x="0" y="0" width="854.6" height="452.0" fill="#ffffff"/>
+<path d="M 34.0,103.0 Q 0.0,155.0 34.0,207.0" fill="none" stroke="#111111" stroke-width="1.6"/>
+<path d="M 34.0,234.0 Q 0.0,286.0 34.0,338.0" fill="none" stroke="#111111" stroke-width="1.6"/>
+<path d="M 211.9,104.5 L 456.8,222.0" fill="none" stroke="#111111" stroke-width="1.6"/>
+<polygon points="456.8,222.0 444.2,220.8 447.9,212.9" fill="#111111"/>
+<path d="M 211.9,222.0 L 456.8,222.0" fill="none" stroke="#111111" stroke-width="1.6"/>
+<polygon points="456.8,222.0 444.9,226.3 444.9,217.7" fill="#111111"/>
+<path d="M 211.9,339.5 L 456.8,222.0" fill="none" stroke="#111111" stroke-width="1.6"/>
+<polygon points="456.8,222.0 447.9,231.1 444.2,223.2" fill="#111111"/>
+<path d="M 211.9,365.0 L 456.8,207.0" fill="none" stroke="#111111" stroke-width="1.6"/>
+<polygon points="456.8,207.0 449.1,217.1 444.4,209.8" fill="#111111"/>
+<path d="M 556.8,207.0 L 730.6,220.5" fill="none" stroke="#111111" stroke-width="1.6"/>
+<polygon points="730.6,220.5 718.4,223.9 719.1,215.3" fill="#111111"/>
+<path d="M 556.8,261.0 L 730.6,247.5" fill="none" stroke="#111111" stroke-width="1.6"/>
+<polygon points="730.6,247.5 719.1,252.7 718.4,244.1" fill="#111111"/>
+<rect x="34.0" y="65.5" width="177.9" height="78.0" fill="#ffffff" stroke="#111111" stroke-width="1.6"/>
+<rect x="34.0" y="65.5" width="177.9" height="24.0" fill="#111111" stroke="#111111" stroke-width="1.6"/>
+<text x="123.0" y="83.1" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" font-weight="bold" fill="#ffffff">invoice_items ii</text>
+<text x="123.0" y="108.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">InvoiceId</text>
+<line x1="34.0" y1="116.5" x2="211.9" y2="116.5" stroke="#111111" stroke-width="1.1"/>
+<text x="123.0" y="135.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">TrackId</text>
+<rect x="34.0" y="169.5" width="177.9" height="105.0" fill="#ffffff" stroke="#111111" stroke-width="1.6"/>
+<rect x="34.0" y="169.5" width="177.9" height="24.0" fill="#111111" stroke="#111111" stroke-width="1.6"/>
+<text x="123.0" y="187.1" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" font-weight="bold" fill="#ffffff">invoices i</text>
+<text x="123.0" y="212.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">InvoiceId</text>
+<line x1="34.0" y1="220.5" x2="211.9" y2="220.5" stroke="#111111" stroke-width="1.1"/>
+<text x="123.0" y="239.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">ArtistId</text>
+<line x1="34.0" y1="247.5" x2="211.9" y2="247.5" stroke="#111111" stroke-width="1.1"/>
+<text x="123.0" y="266.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">Total</text>
+<rect x="34.0" y="300.5" width="177.9" height="78.0" fill="#ffffff" stroke="#111111" stroke-width="1.6"/>
+<rect x="34.0" y="300.5" width="177.9" height="24.0" fill="#111111" stroke="#111111" stroke-width="1.6"/>
+<text x="123.0" y="318.1" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" font-weight="bold" fill="#ffffff">artists ar</text>
+<text x="123.0" y="343.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">ArtistId</text>
+<line x1="34.0" y1="351.5" x2="211.9" y2="351.5" stroke="#111111" stroke-width="1.1"/>
+<text x="123.0" y="370.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">Name</text>
+<rect x="456.8" y="169.5" width="100.0" height="105.0" fill="#ffffff" stroke="#111111" stroke-width="1.6"/>
+<rect x="456.8" y="169.5" width="100.0" height="24.0" fill="#111111" stroke="#111111" stroke-width="1.6"/>
+<text x="506.8" y="187.1" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" font-weight="bold" fill="#ffffff">TopSales</text>
+<text x="506.8" y="212.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">Name</text>
+<line x1="456.8" y1="220.5" x2="556.8" y2="220.5" stroke="#111111" stroke-width="1.1"/>
+<text x="506.8" y="239.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">ArtistId</text>
+<line x1="456.8" y1="247.5" x2="556.8" y2="247.5" stroke="#111111" stroke-width="1.1"/>
+<text x="506.8" y="266.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">Total</text>
+<rect x="730.6" y="183.0" width="90.0" height="78.0" fill="#ffffff" stroke="#111111" stroke-width="1.6"/>
+<rect x="730.6" y="183.0" width="90.0" height="24.0" fill="#cccccc" stroke="#111111" stroke-width="1.6"/>
+<text x="775.6" y="200.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" font-weight="bold" fill="#666666">OUTPUT</text>
+<text x="775.6" y="226.1" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">Name</text>
+<line x1="730.6" y1="234.0" x2="820.6" y2="234.0" stroke="#111111" stroke-width="1.1"/>
+<text x="775.6" y="253.1" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">Total</text>
+<rect x="239.5" y="153.9" width="177.6" height="43.9" fill="#ffffff" fill-opacity="0.94" stroke="#d8d8d8" stroke-width="0.8" rx="3"/><text x="328.3" y="169.9" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="13.6" fill="#333333">FROM invoice_items ii</text><text x="328.3" y="187.8" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="13.6" fill="#333333">WHERE TrackId = 1</text>
+<rect x="217.9" y="214.0" width="232.9" height="43.9" fill="#ffffff" fill-opacity="0.94" stroke="#d8d8d8" stroke-width="0.8" rx="3"/><text x="334.3" y="230.0" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="13.6" fill="#333333">JOIN invoices i ON InvoiceId</text><text x="334.3" y="248.0" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="13.6" fill="#333333">GROUP BY ArtistId</text>
+<rect x="227.9" y="280.4" width="225.0" height="26.0" fill="#ffffff" fill-opacity="0.94" stroke="#d8d8d8" stroke-width="0.8" rx="3"/><text x="340.4" y="296.4" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="13.6" fill="#333333">JOIN artists ar ON ArtistId</text>
+<rect x="563.8" y="246.3" width="161.9" height="43.9" fill="#ffffff" fill-opacity="0.94" stroke="#d8d8d8" stroke-width="0.8" rx="3"/><text x="644.8" y="262.2" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="13.6" fill="#333333">ORDER BY Total DESC</text><text x="644.8" y="280.2" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="13.6" fill="#333333">LIMIT 1</text>
+</svg>
+<text x="1276.6" y="388.0" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="14.5" fill="#111111" font-weight="bold">(b) vertical layering direction = tb</text>
+<svg x="916.6" y="398.0" width="720" height="546" viewBox="0 0 720 546">
+<rect x="0" y="0" width="720.0" height="545.8" fill="#ffffff"/>
+<path d="M 136.4,30.0 Q 233.7,-10.0 331.0,30.0" fill="none" stroke="#111111" stroke-width="1.6"/>
+<path d="M 331.0,30.0 Q 413.7,-10.0 496.4,30.0" fill="none" stroke="#111111" stroke-width="1.6"/>
+<path d="M 136.4,108.0 L 97.4,234.9" fill="none" stroke="#111111" stroke-width="1.6"/>
+<polygon points="97.4,234.9 96.8,222.3 105.1,224.8" fill="#111111"/>
+<path d="M 331.0,135.0 L 97.4,234.9" fill="none" stroke="#111111" stroke-width="1.6"/>
+<polygon points="97.4,234.9 106.7,226.2 110.1,234.2" fill="#111111"/>
+<path d="M 496.4,108.0 L 97.4,234.9" fill="none" stroke="#111111" stroke-width="1.6"/>
+<polygon points="97.4,234.9 107.4,227.2 110.1,235.4" fill="#111111"/>
+<path d="M 496.4,108.0 L 97.4,234.9" fill="none" stroke="#111111" stroke-width="1.6"/>
+<polygon points="97.4,234.9 107.4,227.2 110.1,235.4" fill="#111111"/>
+<path d="M 97.4,339.9 L 92.4,439.8" fill="none" stroke="#111111" stroke-width="1.6"/>
+<polygon points="92.4,439.8 88.7,427.7 97.3,428.1" fill="#111111"/>
+<path d="M 97.4,339.9 L 92.4,439.8" fill="none" stroke="#111111" stroke-width="1.6"/>
+<polygon points="92.4,439.8 88.7,427.7 97.3,428.1" fill="#111111"/>
+<rect x="47.4" y="30.0" width="177.9" height="78.0" fill="#ffffff" stroke="#111111" stroke-width="1.6"/>
+<rect x="47.4" y="30.0" width="177.9" height="24.0" fill="#111111" stroke="#111111" stroke-width="1.6"/>
+<text x="136.4" y="47.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" font-weight="bold" fill="#ffffff">invoice_items ii</text>
+<text x="136.4" y="73.1" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">InvoiceId</text>
+<line x1="47.4" y1="81.0" x2="225.3" y2="81.0" stroke="#111111" stroke-width="1.1"/>
+<text x="136.4" y="100.1" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">TrackId</text>
+<rect x="271.3" y="30.0" width="119.4" height="105.0" fill="#ffffff" stroke="#111111" stroke-width="1.6"/>
+<rect x="271.3" y="30.0" width="119.4" height="24.0" fill="#111111" stroke="#111111" stroke-width="1.6"/>
+<text x="331.0" y="47.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" font-weight="bold" fill="#ffffff">invoices i</text>
+<text x="331.0" y="73.1" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">InvoiceId</text>
+<line x1="271.3" y1="81.0" x2="390.7" y2="81.0" stroke="#111111" stroke-width="1.1"/>
+<text x="331.0" y="100.1" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">ArtistId</text>
+<line x1="271.3" y1="108.0" x2="390.7" y2="108.0" stroke="#111111" stroke-width="1.1"/>
+<text x="331.0" y="127.1" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">Total</text>
+<rect x="436.7" y="30.0" width="119.4" height="78.0" fill="#ffffff" stroke="#111111" stroke-width="1.6"/>
+<rect x="436.7" y="30.0" width="119.4" height="24.0" fill="#111111" stroke="#111111" stroke-width="1.6"/>
+<text x="496.4" y="47.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" font-weight="bold" fill="#ffffff">artists ar</text>
+<text x="496.4" y="73.1" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">ArtistId</text>
+<line x1="436.7" y1="81.0" x2="556.1" y2="81.0" stroke="#111111" stroke-width="1.1"/>
+<text x="496.4" y="100.1" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">Name</text>
+<rect x="47.4" y="234.9" width="100.0" height="105.0" fill="#ffffff" stroke="#111111" stroke-width="1.6"/>
+<rect x="47.4" y="234.9" width="100.0" height="24.0" fill="#111111" stroke="#111111" stroke-width="1.6"/>
+<text x="97.4" y="252.5" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" font-weight="bold" fill="#ffffff">TopSales</text>
+<text x="97.4" y="278.0" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">Name</text>
+<line x1="47.4" y1="285.9" x2="147.4" y2="285.9" stroke="#111111" stroke-width="1.1"/>
+<text x="97.4" y="305.0" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">ArtistId</text>
+<line x1="47.4" y1="312.9" x2="147.4" y2="312.9" stroke="#111111" stroke-width="1.1"/>
+<text x="97.4" y="332.0" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">Total</text>
+<rect x="47.4" y="439.8" width="90.0" height="78.0" fill="#ffffff" stroke="#111111" stroke-width="1.6"/>
+<rect x="47.4" y="439.8" width="90.0" height="24.0" fill="#cccccc" stroke="#111111" stroke-width="1.6"/>
+<text x="92.4" y="457.4" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" font-weight="bold" fill="#666666">OUTPUT</text>
+<text x="92.4" y="482.9" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">Name</text>
+<line x1="47.4" y1="490.8" x2="137.4" y2="490.8" stroke="#111111" stroke-width="1.1"/>
+<text x="92.4" y="509.9" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">Total</text>
+<rect x="1.3" y="108.2" width="177.6" height="43.9" fill="#ffffff" fill-opacity="0.94" stroke="#d8d8d8" stroke-width="0.8" rx="3"/><text x="90.1" y="124.2" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="13.6" fill="#333333">FROM invoice_items ii</text><text x="90.1" y="142.1" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="13.6" fill="#333333">WHERE TrackId = 1</text>
+<rect x="78.9" y="180.2" width="232.9" height="43.9" fill="#ffffff" fill-opacity="0.94" stroke="#d8d8d8" stroke-width="0.8" rx="3"/><text x="195.3" y="196.2" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="13.6" fill="#333333">JOIN invoices i ON InvoiceId</text><text x="195.3" y="214.1" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="13.6" fill="#333333">GROUP BY ArtistId</text>
+<rect x="166.8" y="152.2" width="225.0" height="26.0" fill="#ffffff" fill-opacity="0.94" stroke="#d8d8d8" stroke-width="0.8" rx="3"/><text x="279.3" y="168.2" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="13.6" fill="#333333">JOIN artists ar ON ArtistId</text>
+<rect x="-13.4" y="367.2" width="161.9" height="43.9" fill="#ffffff" fill-opacity="0.94" stroke="#d8d8d8" stroke-width="0.8" rx="3"/><text x="67.5" y="383.2" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="13.6" fill="#333333">ORDER BY Total DESC</text><text x="67.5" y="401.1" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="13.6" fill="#333333">LIMIT 1</text>
+</svg>
+<text x="2097.9" y="388.0" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="14.5" fill="#111111" font-weight="bold">(c) simplified layout, key-pair arcs omitted</text>
+<svg x="1670.6" y="398.0" width="855" height="452" viewBox="0 0 855 452">
+<rect x="0" y="0" width="854.6" height="452.0" fill="#ffffff"/>
+<path d="M 211.9,104.5 L 456.8,222.0" fill="none" stroke="#111111" stroke-width="1.6"/>
+<polygon points="456.8,222.0 444.2,220.8 447.9,212.9" fill="#111111"/>
+<path d="M 211.9,222.0 L 456.8,222.0" fill="none" stroke="#111111" stroke-width="1.6"/>
+<polygon points="456.8,222.0 444.9,226.3 444.9,217.7" fill="#111111"/>
+<path d="M 211.9,339.5 L 456.8,222.0" fill="none" stroke="#111111" stroke-width="1.6"/>
+<polygon points="456.8,222.0 447.9,231.1 444.2,223.2" fill="#111111"/>
+<path d="M 211.9,365.0 L 456.8,207.0" fill="none" stroke="#111111" stroke-width="1.6"/>
+<polygon points="456.8,207.0 449.1,217.1 444.4,209.8" fill="#111111"/>
+<path d="M 556.8,207.0 L 730.6,220.5" fill="none" stroke="#111111" stroke-width="1.6"/>
+<polygon points="730.6,220.5 718.4,223.9 719.1,215.3" fill="#111111"/>
+<path d="M 556.8,261.0 L 730.6,247.5" fill="none" stroke="#111111" stroke-width="1.6"/>
+<polygon points="730.6,247.5 719.1,252.7 718.4,244.1" fill="#111111"/>
+<rect x="34.0" y="65.5" width="177.9" height="78.0" fill="#ffffff" stroke="#111111" stroke-width="1.6"/>
+<rect x="34.0" y="65.5" width="177.9" height="24.0" fill="#111111" stroke="#111111" stroke-width="1.6"/>
+<text x="123.0" y="83.1" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" font-weight="bold" fill="#ffffff">invoice_items ii</text>
+<text x="123.0" y="108.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">InvoiceId</text>
+<line x1="34.0" y1="116.5" x2="211.9" y2="116.5" stroke="#111111" stroke-width="1.1"/>
+<text x="123.0" y="135.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">TrackId</text>
+<rect x="34.0" y="169.5" width="177.9" height="105.0" fill="#ffffff" stroke="#111111" stroke-width="1.6"/>
+<rect x="34.0" y="169.5" width="177.9" height="24.0" fill="#111111" stroke="#111111" stroke-width="1.6"/>
+<text x="123.0" y="187.1" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" font-weight="bold" fill="#ffffff">invoices i</text>
+<text x="123.0" y="212.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">InvoiceId</text>
+<line x1="34.0" y1="220.5" x2="211.9" y2="220.5" stroke="#111111" stroke-width="1.1"/>
+<text x="123.0" y="239.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">ArtistId</text>
+<line x1="34.0" y1="247.5" x2="211.9" y2="247.5" stroke="#111111" stroke-width="1.1"/>
+<text x="123.0" y="266.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">Total</text>
+<rect x="34.0" y="300.5" width="177.9" height="78.0" fill="#ffffff" stroke="#111111" stroke-width="1.6"/>
+<rect x="34.0" y="300.5" width="177.9" height="24.0" fill="#111111" stroke="#111111" stroke-width="1.6"/>
+<text x="123.0" y="318.1" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" font-weight="bold" fill="#ffffff">artists ar</text>
+<text x="123.0" y="343.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">ArtistId</text>
+<line x1="34.0" y1="351.5" x2="211.9" y2="351.5" stroke="#111111" stroke-width="1.1"/>
+<text x="123.0" y="370.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">Name</text>
+<rect x="456.8" y="169.5" width="100.0" height="105.0" fill="#ffffff" stroke="#111111" stroke-width="1.6"/>
+<rect x="456.8" y="169.5" width="100.0" height="24.0" fill="#111111" stroke="#111111" stroke-width="1.6"/>
+<text x="506.8" y="187.1" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" font-weight="bold" fill="#ffffff">TopSales</text>
+<text x="506.8" y="212.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">Name</text>
+<line x1="456.8" y1="220.5" x2="556.8" y2="220.5" stroke="#111111" stroke-width="1.1"/>
+<text x="506.8" y="239.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">ArtistId</text>
+<line x1="456.8" y1="247.5" x2="556.8" y2="247.5" stroke="#111111" stroke-width="1.1"/>
+<text x="506.8" y="266.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">Total</text>
+<rect x="730.6" y="183.0" width="90.0" height="78.0" fill="#ffffff" stroke="#111111" stroke-width="1.6"/>
+<rect x="730.6" y="183.0" width="90.0" height="24.0" fill="#cccccc" stroke="#111111" stroke-width="1.6"/>
+<text x="775.6" y="200.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" font-weight="bold" fill="#666666">OUTPUT</text>
+<text x="775.6" y="226.1" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">Name</text>
+<line x1="730.6" y1="234.0" x2="820.6" y2="234.0" stroke="#111111" stroke-width="1.1"/>
+<text x="775.6" y="253.1" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">Total</text>
+<rect x="239.5" y="153.9" width="177.6" height="43.9" fill="#ffffff" fill-opacity="0.94" stroke="#d8d8d8" stroke-width="0.8" rx="3"/><text x="328.3" y="169.9" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="13.6" fill="#333333">FROM invoice_items ii</text><text x="328.3" y="187.8" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="13.6" fill="#333333">WHERE TrackId = 1</text>
+<rect x="217.9" y="214.0" width="232.9" height="43.9" fill="#ffffff" fill-opacity="0.94" stroke="#d8d8d8" stroke-width="0.8" rx="3"/><text x="334.3" y="230.0" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="13.6" fill="#333333">JOIN invoices i ON InvoiceId</text><text x="334.3" y="248.0" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="13.6" fill="#333333">GROUP BY ArtistId</text>
+<rect x="227.9" y="280.4" width="225.0" height="26.0" fill="#ffffff" fill-opacity="0.94" stroke="#d8d8d8" stroke-width="0.8" rx="3"/><text x="340.4" y="296.4" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="13.6" fill="#333333">JOIN artists ar ON ArtistId</text>
+<rect x="563.8" y="246.3" width="161.9" height="43.9" fill="#ffffff" fill-opacity="0.94" stroke="#d8d8d8" stroke-width="0.8" rx="3"/><text x="644.8" y="262.2" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="13.6" fill="#333333">ORDER BY Total DESC</text><text x="644.8" y="280.2" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="13.6" fill="#333333">LIMIT 1</text>
+</svg>
+<text x="1276.6" y="965.8" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="12" fill="#666666">Three layouts of the same SQL</text>
+</svg>

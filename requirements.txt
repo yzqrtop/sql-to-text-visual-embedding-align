@@ -1,10 +1,18 @@
-numpy>=1.24.0
-scipy>=1.10.0
-requests>=2.31.0
-tqdm>=4.66.0
+# Core dependencies for the SQL relational data-flow diagram framework.
+
+# Module 1: deterministic AST -> JSON graph builder
+sqlglot>=20.0.0
+
+# Module 2: semantic gap modeling (text encoder + R-GAT + cross-modal attention)
 torch>=2.0.0
-torchvision>=0.15.0
 transformers>=4.30.0
 tokenizers>=0.13.0
+networkx>=3.0
+
+# Module 3: SVG rendering (pure stdlib, no extra deps)
+
+# Shared utilities
+numpy>=1.24.0
+tqdm>=4.66.0
+requests>=2.31.0
 pillow>=9.5.0
-matplotlib>=3.7.0

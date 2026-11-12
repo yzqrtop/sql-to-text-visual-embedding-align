@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2054" height="670" viewBox="0 0 2054 670">
+<rect x="0" y="0" width="2054" height="670" fill="#ffffff"/>
+<text x="1027.0" y="34.0" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="19" fill="#111111" font-weight="bold">SQL -&gt; AST -&gt; graph config -&gt; metaphor diagram conversion pipeline</text>
+<rect x="30.0" y="66.0" width="310.0" height="548.0" rx="8" fill="#fafafa" stroke="#999999" stroke-width="1.2"/>
+<text x="185.0" y="94.0" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16" fill="#111111" font-weight="bold">(1) SQL statement</text>
+<rect x="414.0" y="66.0" width="330.0" height="548.0" rx="8" fill="#fafafa" stroke="#999999" stroke-width="1.2"/>
+<text x="579.0" y="94.0" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16" fill="#111111" font-weight="bold">(2) Abstract Syntax Tree (AST)</text>
+<rect x="818.0" y="66.0" width="372.0" height="548.0" rx="8" fill="#fafafa" stroke="#999999" stroke-width="1.2"/>
+<text x="1004.0" y="94.0" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16" fill="#111111" font-weight="bold">(3) Graph config JSON</text>
+<rect x="1264.0" y="66.0" width="760.0" height="548.0" rx="8" fill="#fafafa" stroke="#999999" stroke-width="1.2"/>
+<text x="1644.0" y="94.0" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16" fill="#111111" font-weight="bold">(4) Metaphor diagram</text>
+<line x1="350.0" y1="324.0" x2="395.0" y2="324.0" stroke="#555555" stroke-width="2.0"/><polygon points="404.0,324.0 395.0,319.5 395.0,328.5" fill="#555555"/>
+<text x="377.0" y="290.0" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="13" fill="#333333" font-weight="bold">Lexing + parsing</text>
+<text x="377.0" y="350.0" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="10.5" fill="#666666">tokenize * recursive descent (R1-R2)</text>
+<line x1="754.0" y1="324.0" x2="799.0" y2="324.0" stroke="#555555" stroke-width="2.0"/><polygon points="808.0,324.0 799.0,319.5 799.0,328.5" fill="#555555"/>
+<text x="781.0" y="290.0" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="13" fill="#333333" font-weight="bold">Rule mapping</text>
+<text x="781.0" y="350.0" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="10.5" fill="#666666">entities R3-R10 * edges R11-R21</text>
+<line x1="1200.0" y1="324.0" x2="1245.0" y2="324.0" stroke="#555555" stroke-width="2.0"/><polygon points="1254.0,324.0 1245.0,319.5 1245.0,328.5" fill="#555555"/>
+<text x="1227.0" y="290.0" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="13" fill="#333333" font-weight="bold">Layered layout + rendering</text>
+<text x="1227.0" y="350.0" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="10.5" fill="#666666">sql_metaphor_diagram.py（R22–R26）</text>
+<rect x="48.0" y="128.0" width="274.0" height="96.0" rx="4" fill="#ffffff" stroke="#111111" stroke-width="1.4"/>
+<text x="62.0" y="162.0" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="13.5" fill="#111111">SELECT a.Name</text>
+<text x="62.0" y="186.0" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="13.5" fill="#111111">FROM artists a</text>
+<text x="62.0" y="210.0" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="13.5" fill="#111111">WHERE a.ArtistId = 1;</text>
+<text x="185.0" y="252.0" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="12" fill="#666666">input: a syntactically valid SQL query text</text>
+<rect x="527.0" y="132.0" width="104.0" height="26.0" rx="4" fill="#ffffff" stroke="#111111" stroke-width="1.4"/>
+<text x="579.0" y="149.5" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="12.5" fill="#111111">OUTPUT</text>
+<path d="M 579.0,158.0 L 579.0,182.0 L 481.0,182.0 L 481.0,206.0" fill="none" stroke="#111111" stroke-width="1.3"/>
+<rect x="434.0" y="206.0" width="94.0" height="26.0" rx="4" fill="#ffffff" stroke="#111111" stroke-width="1.4"/>
+<text x="481.0" y="223.5" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="12" fill="#111111">OUTPUT_list</text>
+<path d="M 579.0,158.0 L 579.0,182.0 L 579.0,182.0 L 579.0,206.0" fill="none" stroke="#111111" stroke-width="1.3"/>
+<rect x="532.0" y="206.0" width="94.0" height="26.0" rx="4" fill="#ffffff" stroke="#111111" stroke-width="1.4"/>
+<text x="579.0" y="223.5" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="12" fill="#111111">from</text>
+<path d="M 579.0,158.0 L 579.0,182.0 L 677.0,182.0 L 677.0,206.0" fill="none" stroke="#111111" stroke-width="1.3"/>
+<rect x="630.0" y="206.0" width="94.0" height="26.0" rx="4" fill="#ffffff" stroke="#111111" stroke-width="1.4"/>
+<text x="677.0" y="223.5" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="12" fill="#111111">where</text>
+<text x="481.0" y="258.0" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="11.5" fill="#333333">Name</text>
+<text x="579.0" y="258.0" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="11.5" fill="#333333">artists a</text>
+<path d="M 677.0,232.0 L 677.0,256.0 L 677.0,256.0 L 677.0,280.0" fill="none" stroke="#111111" stroke-width="1.3"/>
+<rect x="637.0" y="280.0" width="80.0" height="24.0" rx="4" fill="#ffffff" stroke="#111111" stroke-width="1.4"/>
+<text x="677.0" y="296.5" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="12.5" fill="#111111">=</text>
+<path d="M 677.0,304.0 L 677.0,323.0 L 625.0,323.0 L 625.0,342.0" fill="none" stroke="#111111" stroke-width="1.3"/>
+<path d="M 677.0,304.0 L 677.0,323.0 L 729.0,323.0 L 729.0,342.0" fill="none" stroke="#111111" stroke-width="1.3"/>
+<rect x="565.0" y="342.0" width="120.0" height="24.0" rx="4" fill="#ffffff" stroke="#111111" stroke-width="1.4"/>
+<text x="625.0" y="358.5" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="11" fill="#111111">col a.ArtistId</text>
+<rect x="689.0" y="342.0" width="80.0" height="24.0" rx="4" fill="#ffffff" stroke="#111111" stroke-width="1.4"/>
+<text x="729.0" y="358.5" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="11" fill="#111111">literal 1</text>
+<rect x="834.0" y="124.0" width="340.0" height="232.5" rx="4" fill="#ffffff" stroke="#111111" stroke-width="1.4"/>
+<text x="844.0" y="148.0" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="10.5" fill="#111111">&quot;nodes&quot;: {</text>
+<text x="844.0" y="164.5" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="10.5" fill="#111111">  &quot;artists&quot;: {</text>
+<text x="844.0" y="181.0" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="10.5" fill="#111111">    &quot;header&quot;: &quot;artists a&quot;,</text>
+<text x="844.0" y="197.5" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="10.5" fill="#111111">    &quot;rows&quot;: [&quot;ArtistId&quot;, &quot;Name&quot;]},</text>
+<text x="844.0" y="214.0" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="10.5" fill="#111111">  &quot;result&quot;: {</text>
+<text x="844.0" y="230.5" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="10.5" fill="#111111">    &quot;header&quot;: &quot;OUTPUT&quot;,</text>
+<text x="844.0" y="247.0" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="10.5" fill="#111111">    &quot;rows&quot;: [&quot;Name&quot;] } },</text>
+<text x="844.0" y="263.5" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="10.5" fill="#111111">&quot;edges&quot;: [</text>
+<text x="844.0" y="280.0" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="10.5" fill="#111111">  {&quot;from&quot;: &quot;artists&quot;, &quot;to&quot;: &quot;result&quot;,</text>
+<text x="844.0" y="296.5" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="10.5" fill="#111111">   &quot;from_attr&quot;: &quot;Name&quot;,</text>
+<text x="844.0" y="313.0" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="10.5" fill="#111111">   &quot;to_attr&quot;: &quot;Name&quot;},</text>
+<text x="844.0" y="329.5" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="10.5" fill="#111111">  {&quot;from&quot;: &quot;artists&quot;, &quot;to&quot;: &quot;result&quot;,</text>
+<text x="844.0" y="346.0" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="10.5" fill="#111111">   &quot;label&quot;: &quot;WHERE ArtistId = 1&quot;} ]</text>
+<text x="1004.0" y="382.5" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="12" fill="#666666">nodes = relational entities; edges = clauses and operations</text>
+<svg x="1284.0" y="128.0" width="720" height="452" viewBox="0 0 720 452">
+<rect x="0" y="0" width="720.0" height="452.0" fill="#ffffff"/>
+<path d="M 108.3,239.5 L 229.9,230.5" fill="none" stroke="#111111" stroke-width="1.6"/>
+<polygon points="229.9,230.5 218.4,235.7 217.7,227.1" fill="#111111"/>
+<path d="M 108.3,222.0 L 229.9,222.0" fill="none" stroke="#111111" stroke-width="1.6"/>
+<polygon points="229.9,222.0 218.0,226.3 218.0,217.7" fill="#111111"/>
+<rect x="34.0" y="195.5" width="74.3" height="53.0" fill="#ffffff" stroke="#111111" stroke-width="1.6"/>
+<rect x="34.0" y="195.5" width="74.3" height="17.0" fill="#111111" stroke="#111111" stroke-width="1.6"/>
+<text x="71.2" y="207.8" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="11.0" font-weight="bold" fill="#ffffff">artists a</text>
+<text x="71.2" y="225.3" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="11.0" fill="#111111">ArtistId</text>
+<line x1="34.0" y1="230.5" x2="108.3" y2="230.5" stroke="#111111" stroke-width="1.1"/>
+<text x="71.2" y="243.3" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="11.0" fill="#111111">Name</text>
+<rect x="229.9" y="204.5" width="64.0" height="35.0" fill="#ffffff" stroke="#e01b1b" stroke-width="2.6"/>
+<rect x="229.9" y="204.5" width="64.0" height="17.0" fill="#cccccc" stroke="#e01b1b" stroke-width="2.6"/>
+<text x="261.9" y="216.8" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="11.0" font-weight="bold" fill="#666666">OUTPUT</text>
+<text x="261.9" y="234.3" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="11.0" fill="#111111">Name</text>
+<rect x="114.3" y="220.8" width="109.6" height="20.3" fill="#ffffff" fill-opacity="0.94" stroke="#d8d8d8" stroke-width="0.8" rx="3"/><text x="169.1" y="233.1" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="9.3" fill="#333333">WHERE ArtistId = 1</text>
+</svg>
+<text x="1644.0" y="608.0" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="12" fill="#666666">output: metaphor diagram (rectangles = entities, arrows = clauses/operations)</text>
+</svg>

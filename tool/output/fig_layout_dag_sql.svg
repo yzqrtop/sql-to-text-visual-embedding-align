@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="768" height="741" viewBox="0 0 768 741">
+<rect x="0" y="0" width="768" height="741" fill="#ffffff"/>
+<text x="169.1" y="36.0" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="15" fill="#111111" font-weight="bold">SQL</text>
+<rect x="169.1" y="48.0" width="429.9" height="191.0" rx="4" fill="#f7f7f7" stroke="#999999" stroke-width="1.2"/>
+<text x="185.1" y="75.9" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="14.0" fill="#111111">WITH CustOrders AS (</text>
+<text x="185.1" y="98.9" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="14.0" fill="#111111">  OUTPUT o.CustomerId, c.Name, o.Total</text>
+<text x="185.1" y="121.9" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="14.0" fill="#111111">  FROM orders o</text>
+<text x="185.1" y="144.9" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="14.0" fill="#111111">  JOIN customers c ON o.CustomerId = c.CustomerId</text>
+<text x="185.1" y="167.9" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="14.0" fill="#111111">)</text>
+<text x="185.1" y="190.9" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="14.0" fill="#111111">OUTPUT Name, Total</text>
+<text x="185.1" y="213.9" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="14.0" fill="#111111">FROM CustOrders;</text>
+<svg x="24.0" y="265.0" width="720" height="452" viewBox="0 0 720 452">
+<rect x="0" y="0" width="720.0" height="452.0" fill="#ffffff"/>
+<path d="M 34.0,180.0 Q 0.0,234.0 34.0,288.0" fill="none" stroke="#111111" stroke-width="1.6"/>
+<path d="M 163.2,168.0 L 423.8,222.0" fill="none" stroke="#111111" stroke-width="1.6"/>
+<polygon points="423.8,222.0 411.3,223.8 413.1,215.3" fill="#111111"/>
+<path d="M 163.2,289.5 L 423.8,222.0" fill="none" stroke="#111111" stroke-width="1.6"/>
+<polygon points="423.8,222.0 413.4,229.2 411.2,220.8" fill="#111111"/>
+<path d="M 543.2,234.0 L 589.2,220.5" fill="none" stroke="#111111" stroke-width="1.6"/>
+<polygon points="589.2,220.5 579.0,228.0 576.6,219.7" fill="#111111"/>
+<path d="M 543.2,261.0 L 589.2,247.5" fill="none" stroke="#111111" stroke-width="1.6"/>
+<polygon points="589.2,247.5 579.0,255.0 576.6,246.7" fill="#111111"/>
+<rect x="34.0" y="115.5" width="129.2" height="105.0" fill="#ffffff" stroke="#111111" stroke-width="1.6"/>
+<rect x="34.0" y="115.5" width="129.2" height="24.0" fill="#111111" stroke="#111111" stroke-width="1.6"/>
+<text x="98.6" y="133.1" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" font-weight="bold" fill="#ffffff">orders o</text>
+<text x="98.6" y="158.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">OrderId</text>
+<line x1="34.0" y1="166.5" x2="163.2" y2="166.5" stroke="#111111" stroke-width="1.1"/>
+<text x="98.6" y="185.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">CustomerId</text>
+<line x1="34.0" y1="193.5" x2="163.2" y2="193.5" stroke="#111111" stroke-width="1.1"/>
+<text x="98.6" y="212.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">Total</text>
+<rect x="34.0" y="250.5" width="129.2" height="78.0" fill="#ffffff" stroke="#111111" stroke-width="1.6"/>
+<rect x="34.0" y="250.5" width="129.2" height="24.0" fill="#111111" stroke="#111111" stroke-width="1.6"/>
+<text x="98.6" y="268.1" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" font-weight="bold" fill="#ffffff">customers c</text>
+<text x="98.6" y="293.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">CustomerId</text>
+<line x1="34.0" y1="301.5" x2="163.2" y2="301.5" stroke="#111111" stroke-width="1.1"/>
+<text x="98.6" y="320.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">Name</text>
+<rect x="423.8" y="169.5" width="119.4" height="105.0" fill="#ffffff" stroke="#111111" stroke-width="1.6"/>
+<rect x="423.8" y="169.5" width="119.4" height="24.0" fill="#111111" stroke="#111111" stroke-width="1.6"/>
+<text x="483.5" y="187.1" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" font-weight="bold" fill="#ffffff">CustOrders</text>
+<text x="483.5" y="212.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">CustomerId</text>
+<line x1="423.8" y1="220.5" x2="543.2" y2="220.5" stroke="#111111" stroke-width="1.1"/>
+<text x="483.5" y="239.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">Name</text>
+<line x1="423.8" y1="247.5" x2="543.2" y2="247.5" stroke="#111111" stroke-width="1.1"/>
+<text x="483.5" y="266.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">Total</text>
+<rect x="589.2" y="183.0" width="90.0" height="78.0" fill="#ffffff" stroke="#111111" stroke-width="1.6"/>
+<rect x="589.2" y="183.0" width="90.0" height="24.0" fill="#cccccc" stroke="#111111" stroke-width="1.6"/>
+<text x="634.2" y="200.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" font-weight="bold" fill="#666666">OUTPUT</text>
+<text x="634.2" y="226.1" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">Name</text>
+<line x1="589.2" y1="234.0" x2="679.2" y2="234.0" stroke="#111111" stroke-width="1.1"/>
+<text x="634.2" y="253.1" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">Total</text>
+<rect x="233.4" y="195.7" width="114.5" height="26.0" fill="#ffffff" fill-opacity="0.94" stroke="#d8d8d8" stroke-width="0.8" rx="3"/><text x="290.7" y="211.7" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="13.6" fill="#333333">FROM orders o</text>
+<rect x="172.7" y="256.3" width="248.6" height="26.0" fill="#ffffff" fill-opacity="0.94" stroke="#d8d8d8" stroke-width="0.8" rx="3"/><text x="297.0" y="272.3" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="13.6" fill="#333333">JOIN customers c ON CustomerId</text>
+</svg>
+</svg>

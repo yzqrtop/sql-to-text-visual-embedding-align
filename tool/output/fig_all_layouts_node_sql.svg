@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2284" height="803" viewBox="0 0 2284 803">
+<rect x="0" y="0" width="2284" height="803" fill="#ffffff"/>
+<text x="1025.2" y="40.0" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="15" fill="#111111" font-weight="bold">SQL</text>
+<rect x="1025.2" y="48.0" width="233.6" height="182.0" rx="4" fill="#f7f7f7" stroke="#999999" stroke-width="1.2"/>
+<text x="1040.2" y="74.4" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="13.5" fill="#111111">WITH BigOrders AS (</text>
+<text x="1040.2" y="96.4" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="13.5" fill="#111111">  OUTPUT CustomerId, Total</text>
+<text x="1040.2" y="118.4" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="13.5" fill="#111111">  FROM orders o</text>
+<text x="1040.2" y="140.4" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="13.5" fill="#111111">  WHERE Total &gt; 100</text>
+<text x="1040.2" y="162.4" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="13.5" fill="#111111">)</text>
+<text x="1040.2" y="184.4" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="13.5" fill="#111111">OUTPUT CustomerId, Total</text>
+<text x="1040.2" y="206.4" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="13.5" fill="#111111">FROM BigOrders;</text>
+<text x="388.0" y="278.0" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="14.5" fill="#111111" font-weight="bold">(a) horizontal layering direction = lr</text>
+<svg x="28.0" y="288.0" width="720" height="452" viewBox="0 0 720 452">
+<rect x="0" y="0" width="720.0" height="452.0" fill="#ffffff"/>
+<path d="M 148.8,234.0 L 306.9,220.5" fill="none" stroke="#111111" stroke-width="1.6"/>
+<polygon points="306.9,220.5 295.4,225.8 294.7,217.2" fill="#111111"/>
+<path d="M 148.8,261.0 L 306.9,247.5" fill="none" stroke="#111111" stroke-width="1.6"/>
+<polygon points="306.9,247.5 295.4,252.8 294.7,244.2" fill="#111111"/>
+<path d="M 148.8,222.0 L 306.9,222.0" fill="none" stroke="#111111" stroke-width="1.6"/>
+<polygon points="306.9,222.0 295.0,226.3 295.0,217.7" fill="#111111"/>
+<path d="M 421.7,220.5 L 467.7,220.5" fill="none" stroke="#111111" stroke-width="1.6"/>
+<polygon points="467.7,220.5 455.8,224.8 455.8,216.2" fill="#111111"/>
+<path d="M 421.7,247.5 L 467.7,247.5" fill="none" stroke="#111111" stroke-width="1.6"/>
+<polygon points="467.7,247.5 455.8,251.8 455.8,243.2" fill="#111111"/>
+<rect x="34.0" y="169.5" width="114.8" height="105.0" fill="#ffffff" stroke="#111111" stroke-width="1.6"/>
+<rect x="34.0" y="169.5" width="114.8" height="24.0" fill="#111111" stroke="#111111" stroke-width="1.6"/>
+<text x="91.4" y="187.1" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" font-weight="bold" fill="#ffffff">orders o</text>
+<text x="91.4" y="212.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">OrderId</text>
+<line x1="34.0" y1="220.5" x2="148.8" y2="220.5" stroke="#111111" stroke-width="1.1"/>
+<text x="91.4" y="239.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">CustomerId</text>
+<line x1="34.0" y1="247.5" x2="148.8" y2="247.5" stroke="#111111" stroke-width="1.1"/>
+<text x="91.4" y="266.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">Total</text>
+<rect x="306.9" y="183.0" width="114.8" height="78.0" fill="#ffffff" stroke="#111111" stroke-width="1.6"/>
+<rect x="306.9" y="183.0" width="114.8" height="24.0" fill="#111111" stroke="#111111" stroke-width="1.6"/>
+<text x="364.3" y="200.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" font-weight="bold" fill="#ffffff">BigOrders</text>
+<text x="364.3" y="226.1" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">CustomerId</text>
+<line x1="306.9" y1="234.0" x2="421.7" y2="234.0" stroke="#111111" stroke-width="1.1"/>
+<text x="364.3" y="253.1" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">Total</text>
+<rect x="467.7" y="183.0" width="114.8" height="78.0" fill="#ffffff" stroke="#111111" stroke-width="1.6"/>
+<rect x="467.7" y="183.0" width="114.8" height="24.0" fill="#cccccc" stroke="#111111" stroke-width="1.6"/>
+<text x="525.1" y="200.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" font-weight="bold" fill="#666666">OUTPUT</text>
+<text x="525.1" y="226.1" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">CustomerId</text>
+<line x1="467.7" y1="234.0" x2="582.5" y2="234.0" stroke="#111111" stroke-width="1.1"/>
+<text x="525.1" y="253.1" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">Total</text>
+<rect x="154.8" y="223.0" width="146.1" height="26.0" fill="#ffffff" fill-opacity="0.94" stroke="#d8d8d8" stroke-width="0.8" rx="3"/><text x="227.8" y="239.0" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="13.6" fill="#333333">WHERE Total &gt; 100</text>
+</svg>
+<text x="1142.0" y="278.0" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="14.5" fill="#111111" font-weight="bold">(b) vertical layering direction = tb</text>
+<svg x="782.0" y="288.0" width="720" height="457" viewBox="0 0 720 457">
+<rect x="0" y="0" width="720.0" height="457.0" fill="#ffffff"/>
+<path d="M 91.4,135.0 L 91.4,217.0" fill="none" stroke="#111111" stroke-width="1.6"/>
+<polygon points="91.4,217.0 87.1,205.1 95.7,205.1" fill="#111111"/>
+<path d="M 91.4,135.0 L 91.4,217.0" fill="none" stroke="#111111" stroke-width="1.6"/>
+<polygon points="91.4,217.0 87.1,205.1 95.7,205.1" fill="#111111"/>
+<path d="M 91.4,135.0 L 91.4,217.0" fill="none" stroke="#111111" stroke-width="1.6"/>
+<polygon points="91.4,217.0 87.1,205.1 95.7,205.1" fill="#111111"/>
+<path d="M 91.4,295.0 L 91.4,351.0" fill="none" stroke="#111111" stroke-width="1.6"/>
+<polygon points="91.4,351.0 87.1,339.1 95.7,339.1" fill="#111111"/>
+<path d="M 91.4,295.0 L 91.4,351.0" fill="none" stroke="#111111" stroke-width="1.6"/>
+<polygon points="91.4,351.0 87.1,339.1 95.7,339.1" fill="#111111"/>
+<rect x="34.0" y="30.0" width="114.8" height="105.0" fill="#ffffff" stroke="#111111" stroke-width="1.6"/>
+<rect x="34.0" y="30.0" width="114.8" height="24.0" fill="#111111" stroke="#111111" stroke-width="1.6"/>
+<text x="91.4" y="47.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" font-weight="bold" fill="#ffffff">orders o</text>
+<text x="91.4" y="73.1" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">OrderId</text>
+<line x1="34.0" y1="81.0" x2="148.8" y2="81.0" stroke="#111111" stroke-width="1.1"/>
+<text x="91.4" y="100.1" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">CustomerId</text>
+<line x1="34.0" y1="108.0" x2="148.8" y2="108.0" stroke="#111111" stroke-width="1.1"/>
+<text x="91.4" y="127.1" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">Total</text>
+<rect x="34.0" y="217.0" width="114.8" height="78.0" fill="#ffffff" stroke="#111111" stroke-width="1.6"/>
+<rect x="34.0" y="217.0" width="114.8" height="24.0" fill="#111111" stroke="#111111" stroke-width="1.6"/>
+<text x="91.4" y="234.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" font-weight="bold" fill="#ffffff">BigOrders</text>
+<text x="91.4" y="260.1" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">CustomerId</text>
+<line x1="34.0" y1="268.0" x2="148.8" y2="268.0" stroke="#111111" stroke-width="1.1"/>
+<text x="91.4" y="287.1" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">Total</text>
+<rect x="34.0" y="351.0" width="114.8" height="78.0" fill="#ffffff" stroke="#111111" stroke-width="1.6"/>
+<rect x="34.0" y="351.0" width="114.8" height="24.0" fill="#cccccc" stroke="#111111" stroke-width="1.6"/>
+<text x="91.4" y="368.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" font-weight="bold" fill="#666666">OUTPUT</text>
+<text x="91.4" y="394.1" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">CustomerId</text>
+<line x1="34.0" y1="402.0" x2="148.8" y2="402.0" stroke="#111111" stroke-width="1.1"/>
+<text x="91.4" y="421.1" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">Total</text>
+<rect x="4.4" y="163.0" width="146.1" height="26.0" fill="#ffffff" fill-opacity="0.94" stroke="#d8d8d8" stroke-width="0.8" rx="3"/><text x="77.4" y="179.0" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="13.6" fill="#333333">WHERE Total &gt; 100</text>
+</svg>
+<text x="1896.0" y="278.0" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="14.5" fill="#111111" font-weight="bold">(c) folded intermediate-result CTE, not expanded</text>
+<svg x="1536.0" y="288.0" width="720" height="452" viewBox="0 0 720 452">
+<rect x="0" y="0" width="720.0" height="452.0" fill="#ffffff"/>
+<path d="M 148.8,234.0 L 306.9,220.5" fill="none" stroke="#111111" stroke-width="1.6"/>
+<polygon points="306.9,220.5 295.4,225.8 294.7,217.2" fill="#111111"/>
+<path d="M 148.8,261.0 L 306.9,247.5" fill="none" stroke="#111111" stroke-width="1.6"/>
+<polygon points="306.9,247.5 295.4,252.8 294.7,244.2" fill="#111111"/>
+<rect x="34.0" y="169.5" width="114.8" height="105.0" fill="#ffffff" stroke="#111111" stroke-width="1.6"/>
+<rect x="34.0" y="169.5" width="114.8" height="24.0" fill="#111111" stroke="#111111" stroke-width="1.6"/>
+<text x="91.4" y="187.1" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" font-weight="bold" fill="#ffffff">orders o</text>
+<text x="91.4" y="212.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">OrderId</text>
+<line x1="34.0" y1="220.5" x2="148.8" y2="220.5" stroke="#111111" stroke-width="1.1"/>
+<text x="91.4" y="239.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">CustomerId</text>
+<line x1="34.0" y1="247.5" x2="148.8" y2="247.5" stroke="#111111" stroke-width="1.1"/>
+<text x="91.4" y="266.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">Total</text>
+<rect x="306.9" y="183.0" width="114.8" height="78.0" fill="#ffffff" stroke="#111111" stroke-width="1.6"/>
+<rect x="306.9" y="183.0" width="114.8" height="24.0" fill="#cccccc" stroke="#111111" stroke-width="1.6"/>
+<text x="364.3" y="200.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" font-weight="bold" fill="#666666">OUTPUT</text>
+<text x="364.3" y="226.1" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">CustomerId</text>
+<line x1="306.9" y1="234.0" x2="421.7" y2="234.0" stroke="#111111" stroke-width="1.1"/>
+<text x="364.3" y="253.1" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">Total</text>
+<rect x="156.0" y="255.2" width="146.1" height="26.0" fill="#ffffff" fill-opacity="0.94" stroke="#d8d8d8" stroke-width="0.8" rx="3"/><text x="229.0" y="271.2" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="13.6" fill="#333333">WHERE Total &gt; 100</text>
+</svg>
+<text x="1142.0" y="767.0" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="12" fill="#666666">Three layouts of the same SQL</text>
+</svg>

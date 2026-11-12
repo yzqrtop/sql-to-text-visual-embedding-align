@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2112.6" height="620.0" viewBox="0 0 2112.6 620.0">
+<rect x="0" y="0" width="2112.6" height="620.0" fill="#ffffff"/>
+<path d="M 34.0,110.5 Q 0.0,162.5 34.0,214.5" fill="none" stroke="#111111" stroke-width="1.6"/>
+<path d="M 34.0,241.5 Q 0.0,280.0 34.0,318.5" fill="none" stroke="#111111" stroke-width="1.6"/>
+<path d="M 34.0,345.5 Q 0.0,384.0 34.0,422.5" fill="none" stroke="#111111" stroke-width="1.6"/>
+<path d="M 34.0,449.5 Q 0.0,488.0 34.0,526.5" fill="none" stroke="#111111" stroke-width="1.6"/>
+<path d="M 211.9,526.5 L 527.8,305.0" fill="none" stroke="#111111" stroke-width="1.6"/>
+<polygon points="527.8,305.0 520.5,315.4 515.5,308.3" fill="#111111"/>
+<path d="M 211.9,214.5 L 527.8,332.0" fill="none" stroke="#111111" stroke-width="1.6"/>
+<polygon points="527.8,332.0 515.1,331.9 518.1,323.8" fill="#111111"/>
+<path d="M 211.9,137.5 L 527.8,359.0" fill="none" stroke="#111111" stroke-width="1.6"/>
+<polygon points="527.8,359.0 515.5,355.7 520.5,348.6" fill="#111111"/>
+<path d="M 657.0,320.0 L 1130.6,281.5" fill="none" stroke="#111111" stroke-width="1.6"/>
+<polygon points="1130.6,281.5 1119.1,286.8 1118.4,278.1" fill="#111111"/>
+<path d="M 211.9,553.5 L 1130.6,281.5" fill="none" stroke="#111111" stroke-width="1.6"/>
+<polygon points="1130.6,281.5 1120.4,289.0 1117.9,280.7" fill="#111111"/>
+<path d="M 657.0,320.0 L 1130.6,358.5" fill="none" stroke="#111111" stroke-width="1.6"/>
+<polygon points="1130.6,358.5 1118.4,361.9 1119.1,353.2" fill="#111111"/>
+<path d="M 211.9,553.5 L 1130.6,358.5" fill="none" stroke="#111111" stroke-width="1.6"/>
+<polygon points="1130.6,358.5 1119.8,365.2 1118.0,356.7" fill="#111111"/>
+<path d="M 657.0,320.0 L 1469.4,281.5" fill="none" stroke="#111111" stroke-width="1.6"/>
+<polygon points="1469.4,281.5 1457.7,286.4 1457.3,277.7" fill="#111111"/>
+<path d="M 1240.3,281.5 L 1469.4,281.5" fill="none" stroke="#111111" stroke-width="1.6"/>
+<polygon points="1469.4,281.5 1457.5,285.8 1457.5,277.2" fill="#111111"/>
+<path d="M 657.0,320.0 L 1469.4,358.5" fill="none" stroke="#111111" stroke-width="1.6"/>
+<polygon points="1469.4,358.5 1457.3,362.3 1457.7,353.6" fill="#111111"/>
+<path d="M 1240.3,358.5 L 1469.4,358.5" fill="none" stroke="#111111" stroke-width="1.6"/>
+<polygon points="1469.4,358.5 1457.5,362.8 1457.5,354.2" fill="#111111"/>
+<path d="M 1559.4,281.5 L 1741.1,320.0" fill="none" stroke="#111111" stroke-width="1.6"/>
+<polygon points="1741.1,320.0 1728.6,321.8 1730.4,313.3" fill="#111111"/>
+<path d="M 1559.4,358.5 L 1741.1,320.0" fill="none" stroke="#111111" stroke-width="1.6"/>
+<polygon points="1741.1,320.0 1730.4,326.7 1728.6,318.2" fill="#111111"/>
+<rect x="34.0" y="73.0" width="177.9" height="78.0" fill="#ffffff" stroke="#111111" stroke-width="1.6"/>
+<rect x="34.0" y="73.0" width="177.9" height="24.0" fill="#111111" stroke="#111111" stroke-width="1.6"/>
+<text x="123.0" y="90.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" font-weight="bold" fill="#ffffff">invoices i</text>
+<text x="123.0" y="116.1" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">InvoiceId</text>
+<rect x="34.0" y="124.0" width="177.9" height="27.0" fill="#ffe9e9" stroke="none"/>
+<line x1="34.0" y1="124.0" x2="211.9" y2="124.0" stroke="#111111" stroke-width="1.1"/>
+<text x="123.0" y="143.1" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#e01b1b" font-weight="bold">Total</text>
+<rect x="34.0" y="177.0" width="177.9" height="78.0" fill="#ffffff" stroke="#111111" stroke-width="1.6"/>
+<rect x="34.0" y="177.0" width="177.9" height="24.0" fill="#111111" stroke="#111111" stroke-width="1.6"/>
+<text x="123.0" y="194.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" font-weight="bold" fill="#ffffff">invoice_items ii</text>
+<text x="123.0" y="220.1" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">InvoiceId</text>
+<line x1="34.0" y1="228.0" x2="211.9" y2="228.0" stroke="#111111" stroke-width="1.1"/>
+<text x="123.0" y="247.1" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">TrackId</text>
+<rect x="34.0" y="281.0" width="177.9" height="78.0" fill="#ffffff" stroke="#111111" stroke-width="1.6"/>
+<rect x="34.0" y="281.0" width="177.9" height="24.0" fill="#111111" stroke="#111111" stroke-width="1.6"/>
+<text x="123.0" y="298.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" font-weight="bold" fill="#ffffff">tracks tr</text>
+<text x="123.0" y="324.1" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">TrackId</text>
+<line x1="34.0" y1="332.0" x2="211.9" y2="332.0" stroke="#111111" stroke-width="1.1"/>
+<text x="123.0" y="351.1" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">AlbumId</text>
+<rect x="34.0" y="385.0" width="177.9" height="78.0" fill="#ffffff" stroke="#111111" stroke-width="1.6"/>
+<rect x="34.0" y="385.0" width="177.9" height="24.0" fill="#111111" stroke="#111111" stroke-width="1.6"/>
+<text x="123.0" y="402.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" font-weight="bold" fill="#ffffff">albums al</text>
+<text x="123.0" y="428.1" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">AlbumId</text>
+<line x1="34.0" y1="436.0" x2="211.9" y2="436.0" stroke="#111111" stroke-width="1.1"/>
+<text x="123.0" y="455.1" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">ArtistId</text>
+<rect x="34.0" y="489.0" width="177.9" height="78.0" fill="#ffffff" stroke="#111111" stroke-width="1.6"/>
+<rect x="34.0" y="489.0" width="177.9" height="24.0" fill="#111111" stroke="#111111" stroke-width="1.6"/>
+<text x="123.0" y="506.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" font-weight="bold" fill="#ffffff">artists a</text>
+<text x="123.0" y="532.1" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">ArtistId</text>
+<line x1="34.0" y1="540.0" x2="211.9" y2="540.0" stroke="#111111" stroke-width="1.1"/>
+<text x="123.0" y="559.1" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">Name</text>
+<rect x="527.8" y="267.5" width="129.2" height="105.0" fill="#ffffff" stroke="#111111" stroke-width="1.6"/>
+<rect x="527.8" y="267.5" width="129.2" height="24.0" fill="#111111" stroke="#111111" stroke-width="1.6"/>
+<text x="592.4" y="285.1" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" font-weight="bold" fill="#ffffff">ArtistSales</text>
+<text x="592.4" y="310.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">ArtistId</text>
+<line x1="527.8" y1="318.5" x2="657.0" y2="318.5" stroke="#111111" stroke-width="1.1"/>
+<text x="592.4" y="337.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">InvoiceId</text>
+<rect x="527.8" y="345.5" width="129.2" height="27.0" fill="#ffe9e9" stroke="none"/>
+<line x1="527.8" y1="345.5" x2="657.0" y2="345.5" stroke="#111111" stroke-width="1.1"/>
+<text x="592.4" y="364.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#e01b1b" font-weight="bold">Total</text>
+<rect x="1130.6" y="256.0" width="109.7" height="51.0" fill="#ffffff" stroke="#111111" stroke-width="1.6"/>
+<rect x="1130.6" y="256.0" width="109.7" height="24.0" fill="#111111" stroke="#111111" stroke-width="1.6"/>
+<text x="1185.4" y="273.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" font-weight="bold" fill="#ffffff">TopArtist</text>
+<text x="1185.4" y="299.1" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">ArtistId</text>
+<rect x="1130.6" y="333.0" width="109.7" height="51.0" fill="#ffffff" stroke="#111111" stroke-width="1.6"/>
+<rect x="1130.6" y="333.0" width="109.7" height="24.0" fill="#111111" stroke="#111111" stroke-width="1.6"/>
+<text x="1185.4" y="350.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" font-weight="bold" fill="#ffffff">BotArtist</text>
+<text x="1185.4" y="376.1" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">ArtistId</text>
+<rect x="1469.4" y="256.0" width="90.0" height="51.0" fill="#ffffff" stroke="#111111" stroke-width="1.6"/>
+<rect x="1469.4" y="256.0" width="90.0" height="24.0" fill="#111111" stroke="#111111" stroke-width="1.6"/>
+<text x="1514.4" y="273.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" font-weight="bold" fill="#ffffff">TopAvg</text>
+<rect x="1469.4" y="280.0" width="90.0" height="27.0" fill="#ffe9e9" stroke="none"/>
+<text x="1514.4" y="299.1" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#e01b1b" font-weight="bold">AvgAmt</text>
+<rect x="1469.4" y="333.0" width="90.0" height="51.0" fill="#ffffff" stroke="#111111" stroke-width="1.6"/>
+<rect x="1469.4" y="333.0" width="90.0" height="24.0" fill="#111111" stroke="#111111" stroke-width="1.6"/>
+<text x="1514.4" y="350.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" font-weight="bold" fill="#ffffff">BotAvg</text>
+<rect x="1469.4" y="357.0" width="90.0" height="27.0" fill="#ffe9e9" stroke="none"/>
+<text x="1514.4" y="376.1" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#e01b1b" font-weight="bold">AvgAmt</text>
+<rect x="1741.1" y="294.5" width="337.5" height="51.0" fill="#ffffff" stroke="#e01b1b" stroke-width="2.6"/>
+<rect x="1741.1" y="294.5" width="337.5" height="24.0" fill="#cccccc" stroke="#e01b1b" stroke-width="2.6"/>
+<text x="1909.9" y="312.1" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" font-weight="bold" fill="#666666">SELECT</text>
+<text x="1909.9" y="337.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">ABS(TopAvg.AvgAmt - BotAvg.AvgAmt)</text>
+<rect x="225.9" y="414.2" width="303.9" height="26.0" fill="#ffffff" fill-opacity="0.94" stroke="#d8d8d8" stroke-width="0.8" rx="3"/><text x="377.9" y="430.2" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="13.6" fill="#333333">WHERE ArtistId = ArtistSales.ArtistId</text>
+<rect x="794.2" y="226.8" width="201.3" height="61.9" fill="#ffffff" fill-opacity="0.94" stroke="#d8d8d8" stroke-width="0.8" rx="3"/><text x="894.9" y="242.8" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="13.6" fill="#333333">GROUP BY ArtistId</text><text x="894.9" y="260.7" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="13.6" fill="#333333">ORDER BY SUM(Total) DESC</text><text x="894.9" y="278.7" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="13.6" fill="#333333">LIMIT 1</text>
+<rect x="304.7" y="500.0" width="138.2" height="26.0" fill="#ffffff" fill-opacity="0.94" stroke="#d8d8d8" stroke-width="0.8" rx="3"/><text x="373.8" y="515.9" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="13.6" fill="#333333">ORDER BY ... ASC</text>
+<rect x="795.9" y="379.3" width="193.4" height="61.9" fill="#ffffff" fill-opacity="0.94" stroke="#d8d8d8" stroke-width="0.8" rx="3"/><text x="892.6" y="395.3" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="13.6" fill="#333333">GROUP BY ArtistId</text><text x="892.6" y="413.2" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="13.6" fill="#333333">ORDER BY SUM(Total) ASC</text><text x="892.6" y="431.2" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="13.6" fill="#333333">LIMIT 1</text>
+<rect x="303.6" y="527.9" width="138.2" height="26.0" fill="#ffffff" fill-opacity="0.94" stroke="#d8d8d8" stroke-width="0.8" rx="3"/><text x="372.7" y="543.9" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="13.6" fill="#333333">ORDER BY ... ASC</text>
+<rect x="663.6" y="289.1" width="461.6" height="43.9" fill="#ffffff" fill-opacity="0.94" stroke="#d8d8d8" stroke-width="0.8" rx="3"/><text x="894.4" y="305.0" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="13.6" fill="#333333">JOIN i ON InvoiceId</text><text x="894.4" y="323.0" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="13.6" fill="#333333">SUM(Total) * CAST(COUNT(*) AS FLOAT) / COUNT(*) AS AvgAmt</text>
+<rect x="1246.3" y="282.5" width="217.1" height="26.0" fill="#ffffff" fill-opacity="0.94" stroke="#d8d8d8" stroke-width="0.8" rx="3"/><text x="1354.8" y="298.5" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="13.6" fill="#333333">WHERE ArtistId = TopArtist</text>
+<rect x="662.3" y="335.0" width="461.6" height="43.9" fill="#ffffff" fill-opacity="0.94" stroke="#d8d8d8" stroke-width="0.8" rx="3"/><text x="893.1" y="350.9" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="13.6" fill="#333333">JOIN i ON InvoiceId</text><text x="893.1" y="368.9" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="13.6" fill="#333333">SUM(Total) * CAST(COUNT(*) AS FLOAT) / COUNT(*) AS AvgAmt</text>
+<rect x="1246.3" y="359.5" width="217.1" height="26.0" fill="#ffffff" fill-opacity="0.94" stroke="#d8d8d8" stroke-width="0.8" rx="3"/><text x="1354.8" y="375.5" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="13.6" fill="#333333">WHERE ArtistId = BotArtist</text>
+<rect x="1598.0" y="301.5" width="98.8" height="26.0" fill="#ffffff" fill-opacity="0.94" stroke="#d8d8d8" stroke-width="0.8" rx="3"/><text x="1647.3" y="317.4" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="13.6" fill="#333333">FROM TopAvg</text>
+<rect x="1568.3" y="340.0" width="169.8" height="26.0" fill="#ffffff" fill-opacity="0.94" stroke="#d8d8d8" stroke-width="0.8" rx="3"/><text x="1653.1" y="355.9" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="13.6" fill="#333333">JOIN BotAvg ON 1 = 1</text>
+</svg>

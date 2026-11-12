@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="768" height="626" viewBox="0 0 768 626">
+<rect x="0" y="0" width="768" height="626" fill="#ffffff"/>
+<text x="262.4" y="36.0" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="15" fill="#111111" font-weight="bold">SQL</text>
+<rect x="262.4" y="48.0" width="243.1" height="76.0" rx="4" fill="#f7f7f7" stroke="#999999" stroke-width="1.2"/>
+<text x="278.4" y="75.9" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="14.0" fill="#111111">OUTPUT SUM(Total) AS Total</text>
+<text x="278.4" y="98.9" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="14.0" fill="#111111">FROM invoices i;</text>
+<svg x="24.0" y="150.0" width="720" height="452" viewBox="0 0 720 452">
+<rect x="0" y="0" width="720.0" height="452.0" fill="#ffffff"/>
+<path d="M 153.4,261.0 L 327.3,234.0" fill="none" stroke="#111111" stroke-width="1.6"/>
+<polygon points="327.3,234.0 316.2,240.1 314.8,231.5" fill="#111111"/>
+<rect x="34.0" y="169.5" width="119.4" height="105.0" fill="#ffffff" stroke="#111111" stroke-width="1.6"/>
+<rect x="34.0" y="169.5" width="119.4" height="24.0" fill="#111111" stroke="#111111" stroke-width="1.6"/>
+<text x="93.7" y="187.1" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" font-weight="bold" fill="#ffffff">invoices i</text>
+<text x="93.7" y="212.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">InvoiceId</text>
+<line x1="34.0" y1="220.5" x2="153.4" y2="220.5" stroke="#111111" stroke-width="1.1"/>
+<text x="93.7" y="239.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">CustomerId</text>
+<rect x="34.0" y="247.5" width="119.4" height="27.0" fill="#ffe9e9" stroke="none"/>
+<line x1="34.0" y1="247.5" x2="153.4" y2="247.5" stroke="#111111" stroke-width="1.1"/>
+<text x="93.7" y="266.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#e01b1b" font-weight="bold">Total</text>
+<rect x="327.3" y="196.5" width="90.0" height="51.0" fill="#ffffff" stroke="#111111" stroke-width="1.6"/>
+<rect x="327.3" y="196.5" width="90.0" height="24.0" fill="#cccccc" stroke="#111111" stroke-width="1.6"/>
+<text x="372.3" y="214.1" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" font-weight="bold" fill="#666666">OUTPUT</text>
+<text x="372.3" y="239.6" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="16.0" fill="#111111">Total</text>
+<rect x="161.5" y="248.4" width="161.9" height="26.0" fill="#ffffff" fill-opacity="0.94" stroke="#d8d8d8" stroke-width="0.8" rx="3"/><text x="242.5" y="264.3" text-anchor="middle" font-family="Arial, Helvetica, 'Microsoft YaHei', sans-serif" font-size="13.6" fill="#333333">SUM(Total) AS Total</text>
+</svg>
+</svg>

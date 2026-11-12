@@ -1,369 +1,209 @@
-# MetaphorSearch：面向Text-to-SQL意图验证的视觉隐喻生成
+# 🎨 SQL Relational Data-Flow Diagram Framework
 
-## 项目概述
+A cross-modal alignment framework that turns SQL queries into **low-cognitive-load
+relational data-flow diagrams** and highlights the graph elements that may
+deviate from the user's natural-language intent.
 
-本项目实现了一种基于视觉隐喻的SQL意图验证方法，通过贝叶斯多目标优化生成可视化隐喻图，帮助用户快速识别SQL查询与自然语言意图之间的偏差。
+✨ **Key features**
 
-## 目录结构
+- 🧱 **Deterministic SQL → JSON graph** — rule-based `sqlglot` parsing, no black-box structure prediction.
+- 🧠 **Element-level semantic-gap scoring** — an LLM (Qwen2.5-Coder-7B) + Relational GAT with cross-modal attention.
+- 🎯 **Real-error-driven supervision** — training triples `(q, s_gt, s_bug)` built from genuine LLM mistakes, aligned via Graph Edit Distance.
+- 🖼️ **Deterministic SVG rendering** — longest-path layering, attribute-level anchoring, and pop-out highlighting of suspicious elements.
 
-```
-MetaphorSearch/
-├── data/                            # 数据目录
-│   ├── spider/                      # 原始Spider数据集
-│   │   ├── train.json
-│   │   ├── dev.json
-│   │   └── tables.json
-│   └── processed/                   # 处理后的测试集
-│       └── test.json                # 500一致 + 200偏差样本
-├── src/                             # 源代码
-│   ├── __init__.py
-│   ├── config.py                    # 全局配置（模型路径、超参数）
-│   ├── data_loader.py               # 数据加载与预处理
-│   ├── encoder.py                   # 双通道编码与显著性权重
-│   ├── layout_generator.py          # VLM交叉注意力生成布局参数
-│   ├── optimizer.py                 # 贝叶斯多目标帕累托搜索
-│   ├── renderer.py                  # SVG符号渲染
-│   ├── evaluator.py                 # 自动评估指标（UMC、诊断效用）
-│   └── utils.py                     # 辅助工具（CKA、复杂度计算等）
-├── experiments/                     # 实验脚本
-│   ├── run_main.py                  # 单样本流程（输入SQL+NL，输出SVG+评分）
-│   ├── run_evaluation.py            # 批量测试、基线对比、消融实验
-│   └── run_user_study.py            # 用户研究（模拟或实际执行）
-├── results/                         # 输出结果
-│   ├── svg/                         # 生成的隐喻图
-│   ├── scores.json                  # 每个样本的U、F、D、UMC
-│   ├── benchmark/                   # 基线对比和消融实验数据
-│   └── user_study/                  # 用户研究结果
-├── download_spider.py               # Spider数据集下载脚本
-├── process_spider_data.py           # 数据预处理脚本
-├── README.md                        # 整体执行说明
-└── requirements.txt                 # 依赖包
-```
+---
 
-## 环境配置
 
-### Python版本
-- Python 3.8+
+## 🚀 Quickstart
 
-### 安装依赖
+### 1️⃣ Installation
+
+Python **3.10+** is recommended.
 
 ```bash
 pip install -r requirements.txt
 ```
 
-主要依赖包括：
-- numpy >= 1.24.0
-- scipy >= 1.10.0
-- torch >= 2.0.0
-- transformers >= 4.30.0
+> 💡 On first use, Module 2 downloads `Qwen/Qwen2.5-Coder-7B` from HuggingFace
+> (~15 GB). Set the environment variable `SQLVIS_TEXT_MODEL` to any other
+> HuggingFace causal LM to use a smaller stand-in, and `SQLVIS_DEVICE` to
+> `cpu` / `cuda` to control the device. Modules 1 and 3 need no model downloads.
 
-## 数据预处理
-
-### 1. 下载Spider数据集
+### 2️⃣ Build the JSON graph (Module 1)
 
 ```bash
-python download_spider.py
+# From a SQL file -> JSON config
+python tool/sql_to_ast_config.py --sql-file tool/examples/artist_pipeline.sql --out config.json
+
+# Inline SQL (pass an empty --sql-file so --sql takes effect)
+python tool/sql_to_ast_config.py --sql-file= --sql "SELECT * FROM t WHERE a = 1" --out config.json
+
+# Inspect the intermediate AST only (printed to stdout)
+python tool/sql_to_ast_config.py --sql-file tool/examples/easy_example.sql --ast
+
+# Custom canvas size (default 1200x620)
+python tool/sql_to_ast_config.py --sql-file tool/examples/cte_pipeline.sql --canvas 1600x800 --out config.json
 ```
 
-**流程说明**：
-- 从Spider官方GitHub仓库下载原始数据集
-- 下载文件包括：`train_spider.json`（训练数据，约7000条）、`dev.json`（开发数据，约1000条）、`tables.json`（数据库Schema信息）
-- 数据保存到 `data/spider/` 目录
+📌 The default output path is `default.json`; pass `--out=` to print the JSON
+to stdout instead. (The `--opt=` empty-value form works in both bash and
+PowerShell.)
 
-**运行条件**：需要网络连接
+### 3️⃣ Score graph elements (Module 2)
 
-**输出**：
+```python
+import sys
+sys.path.insert(0, "tool")  # make Module 1 importable
+
+from sql_to_ast_config import build_config
+from src.aligner import AlignmentScorer
+from src.graph_features import build_graph_tensors, apply_scores_to_graph
+
+sql = "SELECT name FROM artists WHERE country = 'USA'"
+question = "List the names of American artists."
+
+# Module 1: SQL -> JSON graph
+ast, json_graph = build_config(sql)
+
+# Module 2: JSON graph -> element-level semantic-gap scores
+node_feats, edge_index, edge_type, element_ids = build_graph_tensors(json_graph)
+model = AlignmentScorer(num_relations=12)          # loads Qwen2.5-Coder-7B
+model.eval()
+scores = model.predict_scores(question, node_feats, edge_index, edge_type)
+
+# Write S_u back onto the graph: elements with S_u >= tau get highlight flags
+json_graph = apply_scores_to_graph(json_graph, scores, element_ids)
 ```
-data/spider/
-├── train_spider.json
-├── dev.json
-└── tables.json
-```
 
-### 2. 处理数据集
+🏋️ **Training** uses `src/trainer.py`: each sample is a
+`(question, json_graph, element_labels)` triple; labels come from GED alignment
+(`src/graph_alignment.py`) of gold vs. buggy SQL graphs. The objective is
+`L_BCE + lambda * L_contrast`, and checkpoints are saved via
+`AlignmentTrainer.save(path)`.
+
+### 4️⃣ Render the SVG (Module 3)
 
 ```bash
-python process_spider_data.py
+python tool/sql_metaphor_diagram.py --config config.json --out diagram.svg
 ```
 
-**流程说明**：
-1. **数据加载**：解析JSON文件，提取 `(question, sql, schema)` 三元组
-2. **分层采样**：按查询类型各取100条，构造500条测试集
-   - simple: 简单筛选查询
-   - aggregate: 聚合查询
-   - join: 连接查询
-   - subquery: 子查询
-   - complex: 复合查询
-3. **构造偏差样本**：随机选取200条，人为修改SQL生成"意图偏差"样本
-   - 修改策略：AND→OR、聚合函数改变、比较操作符改变、添加NOT等
-4. **数据存储**：保存为 `data/processed/test.json`
+### 5️⃣ Regenerate all paper figures
 
-**运行条件**：已下载Spider数据集
+```bash
+python tool/paper_figures.py --out tool/output
+```
 
-**输出数据格式**：
+### 🔁 End-to-end pipeline
+
+```bash
+python tool/sql_to_ast_config.py --sql-file tool/examples/artist_pipeline.sql --out config.json
+python tool/sql_metaphor_diagram.py --config config.json --out tool/output/diagram.svg
+```
+
+---
+
+## 🧩 Module Details
+
+### 🧱 Module 1 — AST-JSON builder (`tool/sql_to_ast_config.py`)
+
+Parses SQL with `sqlglot` (a pure-stdlib recursive-descent parser is the
+fallback), then a `ConfigBuilder` instantiates data-source entities, builds
+per-query-block scopes (alias / self-join handling), and emits directed edges
+with predicate labels. Correlated single-table scalar subqueries are folded
+into annotated edges to avoid fragmented graphs.
+
+SQL is mapped onto three visual primitives:
+
+| Graph element | SQL component               | Visual representation        |
+|---------------|-----------------------------|------------------------------|
+| node          | base table, CTE, subquery   | rectangle                    |
+| edge          | SELECT, WHERE, JOIN, ...    | arrow (data flow)            |
+| edge label    | predicates, computations    | text annotation on the arrow |
+
+The output JSON carries `nodes` (dict), `edges` (list), `layout`, and `canvas`.
+After Module 2 scoring, each element additionally holds:
+
 ```json
-{
-  "question": "自然语言问题",
-  "sql_original": "原始SQL查询",
-  "sql_modified": "修改后的SQL（偏差样本）",
-  "schema": "数据库Schema信息",
-  "label": 0,  // 0: 一致, 1: 偏差
-  "complexity_score": 0.5,
-  "query_type": "simple",
-  "db_id": "数据库ID"
-}
+{ "score": 0.73, "highlight": true }
 ```
 
-## 运行单样本
+📖 See `tool/sql_ast_json_rules.md` for the complete rule catalogue (R0–R26).
 
-### 方式一：命令行参数
+### 🧠 Module 2 — Semantic-gap scorer (`src/`)
 
-```bash
-python experiments/run_main.py --sql "SELECT name, age FROM students WHERE score > 90" --nl "Find students with score above 90" --schema "students(name, age, score)" --output results/
-```
+For every graph element `u`, the model predicts
+`P_align(u) = sigmoid(MLP(C_u))`:
 
-**流程说明**：
-1. **双通道编码**：使用BERT模型分别对SQL和自然语言进行编码，提取语义嵌入和显著性权重
-2. **布局参数生成**：基于VLM交叉注意力机制，根据编码结果生成视觉原语布局参数
-3. **贝叶斯优化**：在布局参数空间中进行多目标优化，最大化保真度(F)和偏差可见性(D)，最小化复杂度(C)
-4. **SVG渲染**：根据优化后的参数渲染隐喻图SVG
-5. **评估指标**：计算F、D、C、UMC和诊断效用U
+- **Text encoder** — `Qwen2.5-Coder-7B` produces token hidden states `H_q`.
+- **Graph encoder** — a Relational GAT produces one hidden vector `H_u` per element.
+- **Cross-modal attention** — `C_u' = MultiHeadAttention(H_q, H_u, H_u)` with the
+  text as Query and graph elements as Key/Value, then `C_u = MeanPooling(C_u')`.
+- **Scoring head** — an MLP maps the fused representation to a probability.
 
-**运行条件**：已安装依赖包，首次运行需要下载BERT预训练模型
+**Supervision.** Real LLM errors on Spider 2.0 (DISTINCT misuse, window-frame
+errors, UNION confusion, predicate drift, wrong aggregation keys) provide
+`s_bug`. Because bug graphs drift structurally, GED aligns `J_gt` with `J_bug`;
+inserted/substituted elements become negatives (`y=0`), everything else positives.
 
-**输出**：
-- SVG可视化文件（`results/svg/output_sample1.svg`）
-- 评分报告（`results/scores.json`）
-
-### 方式二：简化测试（无需预训练模型）
-
-```bash
-python experiments/test_layout.py
-```
-
-**流程说明**：
-- 使用模拟嵌入数据测试布局生成和渲染流程
-- 跳过贝叶斯优化步骤，直接使用初始布局参数
-- 适合快速验证代码逻辑
-
-**运行条件**：已安装依赖包
-
-**输出**：
-- `results/test_output.svg` - SVG可视化文件
-- `results/test_result.json` - 评估指标
-
-## 批量评估
-
-### 运行完整评估（包含基线对比和消融实验）
-
-```bash
-python experiments/run_evaluation.py --test data/processed/test.json --results results/
-```
-
-**流程说明**：
-1. **批量评估**：对测试集每个样本运行完整流程
-2. **基线对比**：
-   - 本文方法（双通道+贝叶斯优化）
-   - 执行计划树（模拟pgAdmin EXPLAIN输出）
-   - 硬编码规则（基于SQL模板的固定布局）
-   - 纯LLM端到端生成（模拟GPT-4直接生成SVG）
-   - 仅SQL通道（去除自然语言通道）
-   - 仅NL通道（去除SQL通道）
-3. **消融实验**：
-   - no_nl_channel: 去除NL通道
-   - no_vlm_attention: 去除VLM交叉注意力（随机布局）
-   - no_complexity_penalty: 去除认知负荷惩罚（生成更复杂布局）
-   - no_context_anchor: 去除上下文锚点（不绘制boundary）
-   - no_bayesian: 去除贝叶斯优化（改用坐标下降）
-4. **贝叶斯效率统计**：记录耗时、迭代次数、前沿解个数
-5. **统计检验**：配对t检验，输出均值±标准差
-
-**运行条件**：已安装依赖包，已生成测试数据
-
-**输出文件**：
-- `results/batch_evaluation.json` - 批量评估结果
-- `results/baseline_comparison.json` - 基线对比结果
-- `results/ablation_study.json` - 消融实验结果
-
-### 简化批量评估测试
-
-```bash
-python experiments/test_batch.py
-```
-
-**流程说明**：
-- 使用模拟嵌入数据测试批量评估流程
-- 测试三种方法：完整流程、仅SQL通道、仅NL通道
-- 适合快速验证评估逻辑
-
-**运行条件**：已安装依赖包
-
-**输出文件**：
-- `results/batch_evaluation_result.json` - 批量评估汇总结果
-
-## 用户研究
-
-### 运行用户研究模拟
-
-```bash
-python experiments/run_user_study.py --samples 50 --output results/user_study/
-```
-
-**流程说明**：
-1. **分层抽样**：从测试集抽取50样本（高/中/低UMC分层）
-2. **人工评分模拟**：20名虚拟用户对隐喻图打分（1-5李克特量表）
-3. **相关性分析**：
-   - UMC与人工评分的Pearson/Spearman相关系数
-   - 诊断效用U与人工评分的相关系数
-4. **三臂用户研究**（N=10，受试者内设计）：
-   - 纯表格（文本形式）
-   - 执行计划树（传统可视化）
-   - MetaphorSearch（本文方法）
-5. **配对t检验**：正确率和响应时间对比
-6. **可用性评估**：SUS量表、NASA-TLX工作负荷
-
-**运行条件**：已安装依赖包，已生成测试数据
-
-**输出文件**：
-- `results/user_study.json` - 用户研究结果
-
-## 核心算法说明
-
-### 贝叶斯多目标优化
-
-论文中无传统训练，而是通过贝叶斯优化在参数空间搜索最佳布局：
-
-1. **初始采样**：随机采样30个候选布局参数
-2. **目标计算**：对每个候选渲染SVG，计算F（保真度）、D（偏差可见性）、C（复杂度）
-3. **高斯过程代理**：训练3个GP模型分别拟合三个目标
-4. **EHVI采集函数**：最大化超体积改进，选择下一个采样点
-5. **帕累托前沿**：迭代50次后获取非支配解集
-6. **自适应选点**：根据SQL复杂度选择最终布局
-
-优化统计输出：
-- 总迭代次数
-- 耗时（秒）
-- 帕累托前沿解个数
-- 最终超体积
-- 收敛迭代
-
-### 评估指标
-
-| 指标 | 说明 | 计算方式 |
-|------|------|----------|
-| F (Fidelity) | SQL语义保真度 | CKA(SVG嵌入, SQL嵌入) |
-| D (Diagnosis) | 偏差可见性 | 1 - CKA(SVG嵌入, NL嵌入) |
-| C (Complexity) | 视觉复杂度 | 交叉数、树深度、重叠度加权 |
-| UMC | 统一隐喻一致性 | 0.5×CLIP对齐 + 0.5×BERT相似度 |
-| U (Utility) | 诊断效用 | D × (1 - C×0.5) × β |
-
-## 实验结果
-
-### 实验设置
-
-**数据集**：使用Spider数据集的子集（约500个查询），按查询类型分层采样：
-- 简单筛选（100个）
-- 单表聚合（100个）
-- 多表JOIN（100个）
-- 嵌套子查询（100个）
-- 复合操作（100个）
-
-**构造"意图偏差"测试样本**：从500个查询中随机选取200个，人为修改SQL使其偏离原始NL问题（如将"部门平均"改为"全公司平均"，将"AND"改为"OR"）。最终测试集包含500个一致样本 + 200个偏差样本。
-
-**基线方法**：
-- **纯结果表格**：仅展示查询结果表格（无任何逻辑可视化）
-- **执行计划树可视化**：使用pgAdmin的EXPLAIN渲染SQL执行计划树
-- **硬编码规则基线**：提取四维特征向量，匹配预定义规则库
-- **纯LLM端到端生成**：直接将(SQL, NL)输入GPT-4，生成隐喻描述后翻译为SVG
-
-### 主要结果：诊断效用对比
-
-| 方法 | 平均U | 一致样本U | 偏差样本U | 配对t检验（vs 执行计划树） |
-|------|-------|-----------|-----------|---------------------------|
-| 纯结果表格 | 0.48 (0.11) | 0.52 | 0.42 | p < 0.001 |
-| 执行计划树 | 0.61 (0.10) | 0.65 | 0.55 | - |
-| 硬编码规则 | 0.65 (0.09) | 0.68 | 0.60 | p = 0.002 |
-| 纯LLM生成 | 0.58 (0.14) | 0.61 | 0.53 | p = 0.008 |
-| **MetaphorSearch** | **0.79 (0.08)** | **0.80** | **0.78** | **p < 0.001** |
-
-**关键发现**：
-1. MetaphorSearch在所有样本上均显著优于执行计划树基线（+0.18）
-2. 在偏差样本上，执行计划树仅能表达SQL逻辑（U=0.55），无法凸显与NL的偏差
-3. MetaphorSearch在偏差样本上U=0.78，接近一致样本水平（0.80），诊断价值在意图偏差场景下尤为突出
-
-### 消融研究
-
-| 配置 | 平均U | 下降幅度 |
-|------|-------|----------|
-| MetaphorSearch完整 | 0.79 | - |
-| - 移除NL通道输入 | 0.72 | -0.07 |
-| - 移除VLM交叉注意力 | 0.68 | -0.11 |
-| - 移除认知负荷惩罚 | 0.71 | -0.08 |
-| - 移除上下文锚点 | 0.72 | -0.07 |
-| - 移除贝叶斯优化 | 0.74 | -0.05 |
-| - 硬编码规则基线 | 0.65 | -0.14 |
-
-**结果解读**：
-- VLM交叉注意力引导贡献最大（-0.11），证实利用VLM内部表征驱动布局生成的必要性
-- NL通道输入贡献显著（-0.07），验证了双通道设计对意图验证场景的关键作用
-
-### 贝叶斯优化效率分析
-
-| 指标 | 数值 |
-|------|------|
-| 平均函数评估次数 | 78.2次/查询 |
-| 平均耗时（A100） | 6.3秒/查询 |
-| 帕累托前沿平均解个数 | 4.2个/查询 |
-| 自适应选点成功率 | 98.4% |
-
-### 用户研究结果
-
-**三臂用户研究（N=10）**：
-
-| 指标 | A组（纯表格） | B组（执行计划树） | C组（MetaphorSearch） |
-|------|--------------|-------------------|----------------------|
-| 意图校验正确率（一致样本） | 68% | 73% | **88%** |
-| 意图校验正确率（偏差样本） | 40% | 63% | **76%** |
-| 总体正确率 | 52% | 68% | **81%** |
-| 平均响应时间（秒） | 62 | 89 | **52** |
-
-**相关性分析**：
-
-| 指标 | Pearson r | Spearman ρ |
-|------|-----------|------------|
-| 无监督共识UMC | 0.78 | 0.75 |
-| 诊断效用U | **0.80** | **0.77** |
-
-**关键结论**：无需任何人工校准的等权重无监督评估（UMC）即能与用户感知达到强相关（r=0.78），加入诊断效用拆解后进一步提升至0.80。
-
-## 输出说明
+**Training objective** (element-level BCE + triplet contrastive):
 
 ```
-results/
-├── svg/                    # 生成的隐喻图
-│   ├── output_sample1.svg
-│   ├── output_sample2.svg
-│   └── ...
-├── scores.json             # 每个样本的评分
-├── batch_evaluation.json   # 批量评估汇总
-├── baseline_comparison.json # 基线对比（含配对t检验）
-├── ablation_study.json     # 消融实验（含U下降百分比）
-├── user_study.json         # 用户研究结果
-├── bayesian_efficiency.json # 贝叶斯优化效率分析
-└── case_study.json         # 案例研究分析
+L_train    = L_BCE + lambda * L_contrast
+L_contrast = max(0, alpha - sim(C_q, C_u_gt+) + sim(C_q, C_u_bug-))
 ```
 
-## 注意事项
+**Inference.** `S_u = 1 - P_align(u)`; elements with `S_u >= tau` are flagged as
+high semantic gap and trigger pop-out highlighting in Module 3.
 
-- 确保网络连接正常以下载数据集
-- 处理脚本使用随机种子42，保证结果可重复
-- 输出文件编码为UTF-8
-- 偏差样本比例为40%（200/500）
-- 贝叶斯优化默认迭代50次，初始采样30个
+⚙️ **Key hyper-parameters** (`src/config.py`):
 
-## 参考文献
+| Symbol | Meaning                        | Default |
+|--------|--------------------------------|---------|
+| `alpha`| contrastive margin             | `0.5`   |
+| `tau`  | highlight threshold            | `0.6`   |
+| `lambda`| contrastive loss weight       | `1.0`   |
+| `d`    | hidden dimension               | `768`   |
+| —      | text model                     | `Qwen/Qwen2.5-Coder-7B` |
+| —      | learning rate / epochs         | `1e-4` / `10` |
 
-- Spider数据集: https://yale-lily.github.io/spider
-- BERT模型: https://huggingface.co/bert-base-uncased
-- LLaVA模型: https://huggingface.co/llava-hf/llava-1.5-7b-hf
-- CLIP模型: https://huggingface.co/openai/clip-vit-base-patch32
+### 🖼️ Module 3 — SVG renderer (`tool/sql_metaphor_diagram.py`)
+
+Turns a (score-annotated) JSON graph into an SVG diagram:
+
+- 📐 **Longest-path layering** — left-to-right columns by longest dependency path;
+  same-layer nodes stack vertically.
+- ⚓ **Attribute-level anchoring** — edges with `from_attr` / `to_attr` attach to
+  the exact attribute row on the rectangle border (cubic Bezier curves), not the
+  geometric centre; equi-join key bindings use arc links without arrowheads.
+- 🧲 **Label anti-collision** — labels are bounding boxes pushed apart
+  iteratively; column gaps auto-widen to fit the longest label.
+- 🔦 **Visual highlighting** — high-gap nodes get thickened borders and dark-red
+  headers; attribute rows get a light-red background (`#ffe9e9`) and bold red
+  text; lineage tracing highlights upstream source attributes along the data
+  flow; aligned elements stay black-on-white for noise reduction.
+
+---
+
+## 📊 Examples
+
+Six sample SQL queries live in `tool/examples/`:
+
+| File                   | Features exercised                              |
+|------------------------|-------------------------------------------------|
+| `easy_example.sql`     | simple SELECT + WHERE                           |
+| `artist_pipeline.sql`  | CTEs, multi-JOIN, GROUP BY, correlated subquery |
+| `cte_pipeline.sql`     | window functions, CTE pipeline                  |
+| `patent_citations.sql` | NOT IN subqueries, self-join                    |
+| `race_laps.sql`        | aggregation, ORDER BY                           |
+| `spatial_events.sql`   | BigQuery-style functions, backtick identifiers  |
+
+`spatial_events.sql` exercises the pure-stdlib fallback parser (sqlglot's
+default dialect does not cover all BigQuery syntax).
+
+---
+
+## 🗂️ Data & Outputs
+
+- 📚 `data/spider/` — Spider questions/schemas used to build supervision triples.
+- 🖼️ `tool/output/` — generated SVG diagrams and paper figures.
+- 💾 `checkpoints/` — trained Module 2 weights (created on demand, git-ignored).
