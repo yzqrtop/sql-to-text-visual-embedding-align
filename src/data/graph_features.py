@@ -18,7 +18,7 @@ from typing import Dict, List, Tuple
 
 import torch
 
-from . import config
+from .. import config
 
 # Canonical relation-type vocabulary used across the JSON graph.
 RELATION_TYPES: List[str] = [

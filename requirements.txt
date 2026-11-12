@@ -8,6 +8,7 @@ torch>=2.0.0
 transformers>=4.30.0
 tokenizers>=0.13.0
 networkx>=3.0
+scipy>=1.10.0  # required by networkx graph edit distance (Hungarian assignment)
 
 # Module 3: SVG rendering (pure stdlib, no extra deps)
 

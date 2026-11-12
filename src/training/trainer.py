@@ -18,9 +18,9 @@ import torch.nn as nn
 import torch.nn.functional as F
 from torch.utils.data import DataLoader, Dataset
 
-from . import config
-from .aligner import AlignmentScorer
-from .graph_features import build_graph_tensors
+from .. import config
+from ..models.aligner import AlignmentScorer
+from ..data.graph_features import build_graph_tensors
 
 
 class AlignmentDataset(Dataset):

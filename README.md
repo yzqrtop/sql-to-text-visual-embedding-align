@@ -13,6 +13,42 @@ deviate from the user's natural-language intent.
 
 ---
 
+## 📁 Project Layout
+
+```
+.
+├── tool/
+│   ├── sql_to_ast_config.py         # Module 1: SQL -> AST -> JSON graph (sqlglot + ConfigBuilder)
+│   ├── sql_metaphor_diagram.py      # Module 3: deterministic SVG renderer
+│   ├── paper_figures.py             # one-shot generator for all paper figures
+│   ├── sql_ast_json_rules.md        # rule catalogue for the JSON graph (R0 - R26)
+│   ├── examples/                    # six sample SQL queries
+│   └── output/                      # generated SVG diagrams and paper figures
+├── src/                             # Module 2: semantic-gap modeling
+│   ├── config.py                    # hyper-parameters (alpha, tau, model names, ...)
+│   ├── models/                      # dual-model encoding + cross-modal attention
+│   │   ├── aligner.py               # cross-modal attention + MLP scoring head -> P_align
+│   │   └── encoders/
+│   │       ├── text_encoder.py      # Qwen2.5-Coder-7B text encoder -> H_q
+│   │       └── graph_encoder.py     # Relational GAT over the JSON graph -> H_u
+│   ├── data/                        # triplet construction + graph tensorization
+│   │   ├── graph_features.py        # JSON graph -> tensor features + score mapping
+│   │   └── graph_alignment.py       # GED-based alignment for (q, s_gt, s_bug)
+│   └── training/
+│       └── trainer.py               # BCE + triplet contrastive training loop
+├── scripts/                         # runnable entry points
+│   ├── train_aligner.py             # triples -> dense labels -> joint optimization
+│   └── score_sql.py                 # inference: element scoring -> scored JSON graph
+├── data/
+│   ├── spider/                      # Spider dataset (supervision source)
+│   └── triples/                     # (q, s_gt, s_bug) triple JSON files
+├── checkpoints/                     # trained Module 2 weights (created on demand)
+├── results/                         # scored JSON graphs and evaluation outputs
+├── requirements.txt
+└── README.md
+```
+
+---
 
 ## 🚀 Quickstart
 
@@ -23,6 +59,12 @@ Python **3.10+** is recommended.
 ```bash
 pip install -r requirements.txt
 ```
+
+Core dependencies: `sqlglot` (Module 1 parsing), `torch` + `transformers`
+(Module 2 encoders), `networkx` + `scipy` (GED for training-data alignment;
+without scipy a deterministic label-matching fallback is used), and
+`numpy` / `tqdm` / `requests` / `pillow` (shared utilities). Module 3 is pure
+stdlib.
 
 > 💡 On first use, Module 2 downloads `Qwen/Qwen2.5-Coder-7B` from HuggingFace
 > (~15 GB). Set the environment variable `SQLVIS_TEXT_MODEL` to any other
@@ -56,8 +98,8 @@ import sys
 sys.path.insert(0, "tool")  # make Module 1 importable
 
 from sql_to_ast_config import build_config
-from src.aligner import AlignmentScorer
-from src.graph_features import build_graph_tensors, apply_scores_to_graph
+from src.models.aligner import AlignmentScorer
+from src.data.graph_features import build_graph_tensors, apply_scores_to_graph
 
 sql = "SELECT name FROM artists WHERE country = 'USA'"
 question = "List the names of American artists."
@@ -75,11 +117,27 @@ scores = model.predict_scores(question, node_feats, edge_index, edge_type)
 json_graph = apply_scores_to_graph(json_graph, scores, element_ids)
 ```
 
-🏋️ **Training** uses `src/trainer.py`: each sample is a
+🏋️ **Training** (`src/training/trainer.py`): each sample is a
 `(question, json_graph, element_labels)` triple; labels come from GED alignment
-(`src/graph_alignment.py`) of gold vs. buggy SQL graphs. The objective is
-`L_BCE + lambda * L_contrast`, and checkpoints are saved via
-`AlignmentTrainer.save(path)`.
+(`src/data/graph_alignment.py`) of gold vs. buggy SQL graphs, with a
+deterministic label-matching fallback when scipy is unavailable. The objective
+is `L_BCE + lambda * L_contrast`.
+
+🛠️ **Script entry points** wrap both directions:
+
+```bash
+# Inference: score every element of a generated SQL and write the scored JSON
+python scripts/score_sql.py --sql-file tool/examples/artist_pipeline.sql \
+    --question "How many albums does each American artist have?" \
+    --checkpoint checkpoints/aligner.pt --out results/scored_graph.json
+
+# Training: build dense labels from (q, s_gt, s_bug) triples and optimize
+python scripts/train_aligner.py --triples-dir data/triples \
+    --epochs 10 --out checkpoints/aligner.pt
+```
+
+Triple files are plain JSON (`question`, `sql_gt`, `sql_bug`, optional
+`error_type`); see `data/triples/example_triple.json`.
 
 ### 4️⃣ Render the SVG (Module 3)
 
@@ -205,5 +263,6 @@ default dialect does not cover all BigQuery syntax).
 ## 🗂️ Data & Outputs
 
 - 📚 `data/spider/` — Spider questions/schemas used to build supervision triples.
+- 🔗 `data/triples/` — `(q, s_gt, s_bug)` triple JSON files for training.
 - 🖼️ `tool/output/` — generated SVG diagrams and paper figures.
 - 💾 `checkpoints/` — trained Module 2 weights (created on demand, git-ignored).
